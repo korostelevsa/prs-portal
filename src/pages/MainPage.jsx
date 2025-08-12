@@ -32,7 +32,8 @@ export default function MainPage({ onGo }) {
   const go = (r) => { if (onGo) onGo(r); };
 
   return (
-    <div className="mx-auto max-w-7xl">
+<>
+<div className="mx-auto max-w-7xl">
       {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 pt-10 pb-12 sm:pt-16 sm:pb-16">
@@ -180,5 +181,11 @@ export default function MainPage({ onGo }) {
         <LegacyMain onGo={onGo} />
       </section>
     </div>
-  );
+</div>
+</div>
+</div>
+</div>
+</>
+);
 }
+

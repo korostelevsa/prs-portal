@@ -157,10 +157,10 @@ export default function MainPage({ onGo }) {
           </div>
         </Card>
       </div>
-    </div>
 </>
 );
 }
+
 
 
 
