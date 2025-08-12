@@ -24,8 +24,9 @@ export default function MainPage({ onGo }) {
   ];
 
   const stats = [
-    { value: "30%", label: "находят неожиданные маркеры" },
-    { value: "8%",  label: "выявляют серьёзный кардиориск" },
+    <div className="mt-2 text-base sm:text-lg md:text-xl font-semibold text-slate-700">Что люди получают в результате теста</div>
+    { value: "86%", label: "находят важную информацию о себе" },
+    { value: "14%",  label: "выявляют серьёзный риск" },
     { value: "75%", label: "рекомендуют программу друзьям" },
   ];
 
@@ -184,5 +185,6 @@ export default function MainPage({ onGo }) {
 </>
 );
 }
+
 
 
