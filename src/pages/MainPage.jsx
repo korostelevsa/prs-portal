@@ -1,7 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 
 export default function MainPage() {
-  // Демо-данные (можно заменить на реальные)
+  // Временные демо-данные (замените на реальные при необходимости)
   const categories = [
     { name: 'Сердечно-сосудистые', total: 12, avgPercentile: 62, risk: { high: 2, medium: 4, low: 6 } },
     { name: 'Метаболические',      total:  9, avgPercentile: 55, risk: { high: 1, medium: 3, low: 5 } },
@@ -39,36 +39,44 @@ export default function MainPage() {
         {/* Категории */}
         <section className="mt-10">
           <h2 className="text-2xl font-semibold">Категории</h2>
-
           <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((cat, idx) => (
-              <div key={idx} className="rounded-xl border bg-white p-6 shadow-sm flex justify-between">
+              <div
+                key={idx}
+                className="rounded-xl border bg-white p-6 shadow-sm flex items-start justify-between gap-6"
+              >
+                {/* Левая часть */}
                 <div className="min-w-0">
                   <div className="text-lg font-medium">{cat.name}</div>
-
                   <div className="mt-2 text-slate-500">
                     всего состояний:{" "}
                     <span className="font-semibold text-slate-700">{cat.total}</span>
                   </div>
-
                   <div className="mt-1 text-slate-500">
                     ср. перцентиль:{" "}
                     <span className="font-semibold text-slate-700">{cat.avgPercentile}</span>
                   </div>
                 </div>
 
+                {/* Правая часть: риски столбиком справа */}
                 <div className="flex flex-col items-end gap-1 text-right">
                   <div className="flex items-center gap-2">
                     <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500" />
-                    <span className="text-sm">высокий: <b>{cat.risk.high}</b></span>
+                    <span className="text-sm">
+                      высокий: <b>{cat.risk.high}</b>
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="inline-block h-2.5 w-2.5 rounded-full bg-yellow-400" />
-                    <span className="text-sm">средний: <b>{cat.risk.medium}</b></span>
+                    <span className="text-sm">
+                      средний: <b>{cat.risk.medium}</b>
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="inline-block h-2.5 w-2.5 rounded-full bg-green-500" />
-                    <span className="text-sm">низкий: <b>{cat.risk.low}</b></span>
+                    <span className="text-sm">
+                      низкий: <b>{cat.risk.low}</b>
+                    </span>
                   </div>
                 </div>
               </div>
