@@ -3,7 +3,8 @@ import { classNames } from "../lib/utils";
 
 export default function Chip({ children, tone = "slate" }) {
   return (
-    <span
+<>
+<span
       className={classNames(
         "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium",
         tone === "good" && "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200",
@@ -14,5 +15,7 @@ export default function Chip({ children, tone = "slate" }) {
       )}>
       {children}
     </span>
-  );
+</>
+);
 }
+

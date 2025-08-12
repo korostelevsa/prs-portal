@@ -30,7 +30,8 @@ const MiniDistribution = ({ percentile = 50 }) => {
     return { x, y };
   });
   return (
-    <ResponsiveContainer width="100%" height={140}>
+<>
+<ResponsiveContainer width="100%" height={140}>
       <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
         <XAxis dataKey="x" tickFormatter={(v)=>`${v}%`} tick={{fontSize: 12}} />
@@ -40,7 +41,10 @@ const MiniDistribution = ({ percentile = 50 }) => {
         <ReferenceLine x={percentile} stroke="#ef4444" strokeDasharray="4 4" />
       </LineChart>
     </ResponsiveContainer>
-  );
+</XAxis>
+</Tooltip>
+</>
+);
 };
 
 // ---------------- Check-list + diet plan -------------------------------------
@@ -53,7 +57,8 @@ function ActionsChecklist({ onExport }) {
   ]);
   const toggle = (id) => setItems(prev => prev.map(it => it.id === id ? { ...it, done: !it.done } : it));
   return (
-    <div className="space-y-4">
+<>
+<div className="space-y-4">
       <div className="flex items-center justify-between">
         <div className="text-sm text-slate-600">Отмечайте выполненные пункты — прогресс сохранится.</div>
         <Button variant="outline" icon={FileDown} onClick={onExport}>Экспорт PDF</Button>
@@ -68,7 +73,8 @@ function ActionsChecklist({ onExport }) {
       </div>
       <div className="text-xs text-slate-500">Информация носит образовательный характер и не заменяет консультацию врача.</div>
     </div>
-  );
+</>
+);
 }
 
 function DietPlan() {
@@ -88,7 +94,8 @@ function DietPlan() {
     { day: "Вс", focus: "Сон 7–8 ч" },
   ];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+<>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <Card className="p-4">
         <SectionTitle icon={Utensils} title="Быстрые замены (свайпы)" />
         <ul className="mt-3 space-y-2 text-sm">
@@ -121,7 +128,8 @@ function DietPlan() {
         </ul>
       </Card>
     </div>
-  );
+</>
+);
 }
 
 // ---------------- Info / Stats / Study panels -------------------------------
@@ -157,7 +165,8 @@ function DiseaseInfoPanel({ condition }) {
   };
   const info = map[condition.id] || { title: "О заболевании", summary: "", bullets: [] };
   return (
-    <div className="space-y-4">
+<>
+<div className="space-y-4">
       <Card className="p-4">
         <SectionTitle icon={Info} title={info.title} />
         <p className="mt-2 text-sm text-slate-700">{info.summary}</p>
@@ -165,7 +174,8 @@ function DiseaseInfoPanel({ condition }) {
         <div className="mt-2 text-xs text-slate-500">Образовательный материал. Не заменяет консультацию врача.</div>
       </Card>
     </div>
-  );
+</>
+);
 }
 
 function StatsPanel({ condition }) {
@@ -194,7 +204,8 @@ function StatsPanel({ condition }) {
     } catch (e) { alert('Экспорт недоступен в демо-среде'); }
   };
   return (
-    <div className="space-y-4">
+<>
+<div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="p-4">
           <SectionTitle title="Сводка GWAS/PGS (демо)" icon={PercentCircle} />
@@ -224,7 +235,7 @@ function StatsPanel({ condition }) {
         </Card>
       </div>
       <Card className="p-4">
-        <SectionTitle title="Топ-варианты по вкладу в PRS (демо)" icon={ListChecks} actions={<Button variant="outline" icon={FileDown} onClick={exportCSV}>Экспорт CSV</Button>} />
+        <SectionTitle title="Топ-варианты по вкладу в PRS (демо)" icon={ListChecks} actions={<Button variant="outline" icon={FileDown} onClick={exportCSV}>Экспорт CSV} />
         <div className="mt-3 overflow-auto">
           <table className="w-full text-sm">
             <thead>
@@ -251,7 +262,9 @@ function StatsPanel({ condition }) {
         </div>
       </Card>
     </div>
-  );
+</SectionTitle>
+</>
+);
 }
 
 function StudyPanel({ condition }) {
@@ -292,7 +305,8 @@ function StudyPanel({ condition }) {
   ];
 
   return (
-    <div className="space-y-4">
+<>
+<div className="space-y-4">
       <Card className="p-4">
         <SectionTitle title="Об исследовании (паспорт модели)" icon={BookOpen}
           actions={<div className="flex gap-2">
@@ -316,8 +330,9 @@ function StudyPanel({ condition }) {
           <li>Калибровка абсолютного риска по данным инцидентности (возраст/пол)</li>
         </ul>
       </Card>
-    </div>
-  );
+</SectionTitle>
+</>
+);
 }
 
 // ---------------- Inline detail (tabs) --------------------------------------
@@ -332,7 +347,8 @@ function InlineDetail({ condition }) {
   );
 
   return (
-    <div className="space-y-4">
+<>
+<div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="p-5">
           <div className="text-xs text-slate-500">Категория риска</div>
@@ -390,7 +406,9 @@ function InlineDetail({ condition }) {
         </div>
       </Card>
     </div>
-  );
+</ActionsChecklist>
+</>
+);
 }
 
 // ---------------- Table view (list + expandable rows) ------------------------
@@ -398,7 +416,8 @@ export default function TableView({ items = CONDITIONS }) {
   const [openId, setOpenId] = useState(null);
 
   return (
-    <div className="mx-auto max-w-7xl p-4 space-y-3">
+<>
+<div className="mx-auto max-w-7xl p-4 space-y-3">
       <Card className="p-3">
         <div className="grid grid-cols-12 text-xs uppercase tracking-wide text-slate-500">
           <div className="col-span-6 pl-3">Состояние</div>
@@ -434,5 +453,6 @@ export default function TableView({ items = CONDITIONS }) {
         </Card>
       ))}
     </div>
-  );
+</>
+);
 }

@@ -4,7 +4,8 @@ import { Menu, Search, User } from "lucide-react";
 
 export default function TopNav({ onNav, current }) {
   return (
-    <div className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
+<>
+<div className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
       <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="h-9 w-9 rounded-xl bg-slate-900 text-white grid place-items-center font-semibold">PRS</div>
@@ -20,5 +21,7 @@ export default function TopNav({ onNav, current }) {
         </div>
       </div>
     </div>
-  );
+</>
+);
 }
+

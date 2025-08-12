@@ -3,7 +3,8 @@ import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, L
 
 export default function RiskCurve({ points, compare }) {
   return (
-    <ResponsiveContainer width="100%" height={220}>
+<>
+<ResponsiveContainer width="100%" height={220}>
       <LineChart data={points} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
         <XAxis dataKey="age" tick={{ fontSize: 12 }} />
@@ -14,5 +15,9 @@ export default function RiskCurve({ points, compare }) {
         <Legend />
       </LineChart>
     </ResponsiveContainer>
-  );
+</Tooltip>
+</YAxis>
+</>
+);
 }
+

@@ -10,12 +10,14 @@ import { Menu, ArrowLeft } from "lucide-react";
 // Вертикальная стопка чипов риска (справа)
 function RiskStack({ counts, className = "" }) {
   return (
-    <div className={"flex flex-col items-end gap-1 " + className}>
+<>
+<div className={"flex flex-col items-end gap-1 " + className}>
       <Chip tone="bad">Высокий: {counts.bad}</Chip>
       <Chip tone="warn">Средний: {counts.warn}</Chip>
       <Chip tone="good">Низкий: {counts.good}</Chip>
     </div>
-  );
+</>
+);
 }
 
 export default function Catalog() {
@@ -45,7 +47,8 @@ export default function Catalog() {
   if (selected) {
     const cat = categories.find((c) => c.name === selected);
     return (
-      <div className="mx-auto max-w-7xl p-4 space-y-4">
+<>
+<div className="mx-auto max-w-7xl p-4 space-y-4">
         <div className="flex items-center justify-between">
           <Button variant="outline" icon={ArrowLeft} onClick={() => setSelected(null)}>Назад к категориям</Button>
         </div>
@@ -67,11 +70,13 @@ export default function Catalog() {
 
         <TableView items={cat.items} />
       </div>
-    );
+</>
+);
   }
 
   return (
-    <div className="mx-auto max-w-7xl p-4 space-y-4">
+<>
+<div className="mx-auto max-w-7xl p-4 space-y-4">
       <div className="text-2xl font-semibold">Категории</div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {categories.map(({ name, items, counts, Icon, grad, avg }) => (
@@ -98,5 +103,7 @@ export default function Catalog() {
         ))}
       </div>
     </div>
-  );
+</>
+);
 }
+
