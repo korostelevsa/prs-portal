@@ -21,8 +21,9 @@ export default function MainPage({ onGo }) {
     { q: "Важна ли ancestry?", a: "Да. Модели чаще обучены на EUR; переносимость на другие группы ограничена и требует калибровки." },
   ];
 
-  return (<>
-    <div className="mx-auto max-w-7xl p-4 space-y-6">
+  return (
+<>
+<div className="mx-auto max-w-7xl p-4 space-y-6">
       
         <img
           src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
@@ -157,7 +158,9 @@ export default function MainPage({ onGo }) {
         </Card>
       </div>
     </div>
-  </>);
+</>
+);
 }
+
 
 
