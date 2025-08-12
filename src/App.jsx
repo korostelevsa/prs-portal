@@ -6,6 +6,7 @@ import Catalog from "./pages/Catalog";
 import LabsPage from "./pages/LabsPage";
 import ExamsPage from "./pages/ExamsPage";
 import SymptomsPage from "./pages/SymptomsPage";
+import TreatmentPage from "./pages/TreatmentPage";
 
 export default function App() {
   const [route, setRoute] = useState("home");
@@ -18,8 +19,9 @@ export default function App() {
       {route === "labs" && <LabsPage />}
       {route === "exams" && <ExamsPage />}
       {route === "symptoms" && <SymptomsPage />}
+      {route === "treatment" && <TreatmentPage />}
       <footer className="mx-auto max-w-7xl p-6 text-xs text-slate-500">
-        Демо. Числа, графики и разделы иллюстративны и не заменяют консультацию врача.
+        Демо. Данные иллюстративны и не являются мед. рекомендациями.
       </footer>
     </div>
   );
