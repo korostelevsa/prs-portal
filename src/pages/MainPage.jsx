@@ -24,10 +24,10 @@ export default function MainPage({ onGo }) {
   ];
 
   const stats = [
-  { value: "86%", label: "находят важную информацию о себе" },
-  { value: "14%", label: "выявляют серьёзный риск" },
-  { value: "75%", label: "рекомендуют программу друзьям" },
-];
+    { value: "30%", label: "находят неожиданные маркеры" },
+    { value: "8%",  label: "выявляют серьёзный кардиориск" },
+    { value: "75%", label: "рекомендуют программу друзьям" },
+  ];
 
   const go = (r) => { if (onGo) onGo(r); };
 
@@ -61,34 +61,16 @@ export default function MainPage({ onGo }) {
 
       {/* Факт-баннер */}
       <section className="px-4 pb-10">
-        <Card className="relative overflow-hidden rounded-2xl border border-emerald-200/60 bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 md:p-10 shadow-sm">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-emerald-900">
-              Что люди получают в результате теста
-            </h2>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {stats.map((s, i) => (
-              <div
-                key={i}
-                className="group rounded-xl bg-white/70 backdrop-blur-sm ring-1 ring-emerald-100 p-6 text-center shadow-sm transition-all hover:bg-white hover:shadow-md"
-              >
-                <div className="text-5xl md:text-6xl font-black leading-none">
-                  <span className="bg-gradient-to-br from-emerald-600 to-emerald-800 bg-clip-text text-transparent">
-                    {s.value}
-                  </span>
-                </div>
-                <div className="mt-2 text-slate-700">{s.label}</div>
+        <Card className="p-5 bg-emerald-50">
+          <div className="grid gap-4 md:grid-cols-3">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <div className="text-3xl font-bold">{s.value}</div>
+                <div className="text-sm text-slate-600 mt-1">{s.label}</div>
               </div>
             ))}
           </div>
         </Card>
-        <div className="mt-6 text-center">
-          <Button onClick={() => onGo && onGo('labs')}>
-            Анализы
-          </Button>
-        </div>
       </section>
 
       {/* Почему это работает */}

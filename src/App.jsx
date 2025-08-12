@@ -4,6 +4,8 @@ import MainPage from "./pages/MainPage";
 import TableView from "./pages/TableView";
 import Catalog from "./pages/Catalog";
 import LabsPage from "./pages/LabsPage";
+import ExamsPage from "./pages/ExamsPage";
+import SymptomsPage from "./pages/SymptomsPage";
 
 export default function App() {
   const [route, setRoute] = useState("home");
@@ -14,8 +16,10 @@ export default function App() {
       {route === "table" && <TableView />}
       {route === "catalog" && <Catalog />}
       {route === "labs" && <LabsPage />}
+      {route === "exams" && <ExamsPage />}
+      {route === "symptoms" && <SymptomsPage />}
       <footer className="mx-auto max-w-7xl p-6 text-xs text-slate-500">
-        Демо. Числа и графики иллюстративны и не являются мед. рекомендациями.
+        Демо. Числа, графики и разделы иллюстративны и не заменяют консультацию врача.
       </footer>
     </div>
   );

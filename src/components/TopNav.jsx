@@ -1,6 +1,6 @@
-import React from "react";
+﻿import React from "react";
 import Button from "./Button";
-import { Menu, Search, User, FlaskConical } from "lucide-react";
+import { Menu, Search, User, FlaskConical, Stethoscope, FileText } from "lucide-react";
 
 export default function TopNav({ onNav, current }) {
   return (
@@ -14,7 +14,9 @@ export default function TopNav({ onNav, current }) {
           <Button variant={current === "home" ? "outline" : "ghost"} onClick={() => onNav("home")}>Главная</Button>
           <Button variant={current === "table" ? "outline" : "ghost"} onClick={() => onNav("table")} icon={Menu}>Таблица</Button>
           <Button variant={current === "catalog" ? "outline" : "ghost"} onClick={() => onNav("catalog")} icon={Search}>Категории</Button>
-          <Button variant={current === "labs" ? "outline" : "ghost"} onClick={() => onNav("labs")} icon={FlaskConical}>Анализы</Button>
+                  <Button variant={current === "labs" ? "outline" : "ghost"} onClick={() => onNav("labs")} icon={FlaskConical}>Анализы</Button>
+          <Button variant={current === "exams" ? "outline" : "ghost"} onClick={() => onNav("exams")} icon={Stethoscope}>Обследования</Button>
+          <Button variant={current === "symptoms" ? "outline" : "ghost"} onClick={() => onNav("symptoms")} icon={FileText}>Симптомы</Button>
         </div>
         <div className="flex items-center gap-2">
           <Button variant="outline" icon={User}>Иван П.</Button>

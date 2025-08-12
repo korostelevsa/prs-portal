@@ -8,6 +8,7 @@ import {
   Tooltip,
   CartesianGrid,
 } from 'recharts';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
 const fmtDate = (iso) => {
   const d = new Date(iso);
@@ -79,20 +80,11 @@ const Spark = ({ data }) => (
   </div>
 );
 
-const StatusPill = ({ status }) => {
-  const map = {
-    low:   { cls: 'bg-yellow-100 text-yellow-800 ring-yellow-200',   text: 'ниже реф.' },
-    high:  { cls: 'bg-red-100 text-red-800 ring-red-200',            text: 'выше реф.' },
-    normal:{ cls: 'bg-emerald-100 text-emerald-800 ring-emerald-200',text: 'в норме' },
-  };
-  const s = map[status] || map.normal;
-  return <span className={"whitespace-nowrap rounded-full px-2.5 py-1 text-xs ring-1 " + s.cls}>{s.text}</span>;
-};
-
 export default function LabsPage() {
   const [query, setQuery] = useState('');
   const [tab, setTab] = useState('summary');
   const [kind, setKind] = useState('all');
+  const [openDates, setOpenDates] = useState({});
 
   const filteredLabs = useMemo(() => {
     if (kind === 'all') return sampleLabs;
@@ -106,16 +98,11 @@ export default function LabsPage() {
     filteredLabs.forEach((day) => {
       day.results.forEach((r) => {
         if (query && !r.name.toLowerCase().includes(query.toLowerCase())) return;
-        rows.push({
-          date: day.date,
-          kind: day.kind,
-          panel: day.panel,
-          name: r.name,
-          value: r.value,
-          unit: r.unit,
-          ref: r.ref || null,
-          status: withinRange(r.value, r.ref),
-        });
+        const status =
+          !r.ref ? 'normal' :
+          (typeof r.ref.high === 'number' && r.value > r.ref.high) ? 'high' :
+          (typeof r.ref.low === 'number' && r.value < r.ref.low) ? 'low' : 'normal';
+        rows.push({ date: day.date, kind: day.kind, panel: day.panel, ...r, status });
       });
     });
     rows.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -124,9 +111,7 @@ export default function LabsPage() {
 
   const rowsByDate = useMemo(() => {
     const map = {};
-    allRows.forEach((r) => {
-      (map[r.date] ||= []).push(r);
-    });
+    allRows.forEach((r) => { (map[r.date] ||= []).push(r); });
     Object.keys(map).forEach((d) => {
       map[d].sort((a, b) => {
         const w = (s) => (s === 'high' ? 0 : s === 'low' ? 1 : 2);
@@ -138,30 +123,34 @@ export default function LabsPage() {
     return Object.entries(map).sort((a, b) => new Date(b[0]) - new Date(a[0]));
   }, [allRows]);
 
+  const toggleDate = (d) => setOpenDates((s) => ({ ...s, [d]: !s[d] }));
+  const setAll = (open) => {
+    const next = {}; rowsByDate.forEach(([d]) => next[d] = open);
+    setOpenDates(next);
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-6">
         <div className="text-xs text-slate-500">Раздел</div>
         <h1 className="mt-1 text-3xl font-bold tracking-tight">Анализы</h1>
         <p className="mt-2 text-slate-600">
-          Хронология лабораторных результатов (кровь/моча/слюна), быстрый поиск и подсветка показателей «вне нормы».
+          Хронология лабораторных результатов (кровь/моча/слюна). Фильтр по типам, поиск, и свёртывающиеся блоки по датам.
         </p>
       </div>
 
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div className="inline-flex rounded-lg bg-white shadow-sm ring-1 ring-slate-200 overflow-hidden">
           {['summary','biomarkers','upload'].map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className={'px-4 py-2 text-sm ' + (tab === t ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50')}
-            >
+            <button key={t} onClick={() => setTab(t)} className={'px-4 py-2 text-sm ' + (tab === t ? 'bg-slate-900 text-white' : 'text-slate-700 hover:bg-slate-50')}>
               {t === 'summary' ? 'Сводка' : t === 'biomarkers' ? 'Показатели' : 'Загрузка'}
             </button>
           ))}
         </div>
 
         <div className="flex items-center gap-2">
+          <button onClick={() => setAll(true)} className="text-sm text-slate-600 hover:underline">Развернуть всё</button>
+          <button onClick={() => setAll(false)} className="text-sm text-slate-600 hover:underline">Свернуть всё</button>
           <select value={kind} onChange={(e) => setKind(e.target.value)} className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm">
             <option value="all">Все типы</option>
             <option value="Кровь">Кровь</option>
@@ -177,7 +166,7 @@ export default function LabsPage() {
           <div className="rounded-2xl border bg-gradient-to-br from-sky-50 to-slate-50 p-6 ring-1 ring-slate-200">
             <div className="mb-4 text-sm font-medium text-slate-600">Ключевые показатели и тренды</div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {Object.values(trends).slice(0, 6).map((t) => {
+              {Object.values(buildTrends(filteredLabs)).slice(0, 6).map((t) => {
                 const last = t.points[t.points.length - 1]?.value ?? '—';
                 return (
                   <div key={t.name} className="rounded-xl bg-white p-4 ring-1 ring-slate-200 shadow-sm">
@@ -192,82 +181,66 @@ export default function LabsPage() {
               })}
             </div>
           </div>
-
-          <div className="rounded-2xl border bg-white p-6 ring-1 ring-slate-200">
-            <div className="mb-4 text-sm font-medium text-slate-600">Последние анализы</div>
-            <div className="space-y-4">
-              {rowsByDate.map(([date, items]) => {
-                const high = items.filter((r) => r.status === 'high').length;
-                const low  = items.filter((r) => r.status === 'low').length;
-                return (
-                  <div key={date} className="rounded-xl bg-slate-50 p-4 ring-1 ring-slate-200">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <div className="text-base font-semibold">{fmtDate(date)}</div>
-                      <div className="flex items-center gap-2">
-                        <StatusPill status={high ? 'high' : 'normal'} />
-                        <span className="text-sm text-slate-600">высоких: {high}</span>
-                        <StatusPill status={low ? 'low' : 'normal'} />
-                        <span className="text-sm text-slate-600">низких: {low}</span>
-                        <span className="text-sm text-slate-500">всего: {items.length}</span>
-                      </div>
-                    </div>
-                    <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                      {items.slice(0, 6).map((r, i) => (
-                        <div key={i} className="flex items-center justify-between rounded-lg bg-white p-2 ring-1 ring-slate-200">
-                          <div className="truncate">{r.name}</div>
-                          <div className="flex items-center gap-2">
-                            <div className="text-sm text-slate-600">{r.value} {r.unit}</div>
-                            <StatusPill status={r.status} />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
         </div>
       )}
 
       {tab === 'biomarkers' && (
-        <div className="mt-6 rounded-2xl border bg-white p-4 ring-1 ring-slate-200">
-          {rowsByDate.map(([date, items]) => (
-            <div key={date} className="mb-6">
-              <div className="sticky top-0 z-10 -mx-4 mb-2 bg-white px-4 py-2 ring-1 ring-slate-200">
-                <div className="flex flex-wrap items-center justify-between">
-                  <div className="font-semibold">{fmtDate(date)}</div>
-                  <div className="text-xs text-slate-500">{items[0]?.kind} · {items[0]?.panel}</div>
-                </div>
+        <div className="mt-6 space-y-3">
+          {rowsByDate.map(([date, items]) => {
+            const total = items.length;
+            const high = items.filter((r) => r.status === 'high').length;
+            const low  = items.filter((r) => r.status === 'low').length;
+            const normal = total - high - low;
+            const open = !!openDates[date];
+            return (
+              <div key={date} className="rounded-2xl border bg-white ring-1 ring-slate-200">
+                <button type="button" onClick={() => toggleDate(date)} className="w-full px-4 py-3 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    {open ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
+                    <div className="font-semibold">{fmtDate(date)}</div>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <span className="text-slate-600">всего: {total}</span>
+                    <span className="text-emerald-700">в норме: {normal}</span>
+                    <span className="text-red-700">выше: {high}</span>
+                    <span className="text-yellow-700">ниже: {low}</span>
+                  </div>
+                </button>
+                {open && (
+                  <div className="px-4 pb-4">
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full text-sm">
+                        <thead>
+                          <tr className="text-left text-slate-500">
+                            <th className="py-2 pr-4">Показатель</th>
+                            <th className="py-2 pr-4">Значение</th>
+                            <th className="py-2 pr-4">Реф. интервал</th>
+                            <th className="py-2 pr-4">Статус</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y">
+                          {items.map((r, i) => (
+                            <tr key={i} className="hover:bg-slate-50">
+                              <td className="py-2 pr-4">{r.name}</td>
+                              <td className="py-2 pr-4">{r.value} {r.unit}</td>
+                              <td className="py-2 pr-4">
+                                {r.ref ? <>{typeof r.ref.low === 'number' ? r.ref.low : '—'} — {typeof r.ref.high === 'number' ? r.ref.high : '—'} {r.unit}</> : <span className="text-slate-400">нет данных</span>}
+                              </td>
+                              <td className="py-2 pr-4">
+                                <span className={"rounded-full px-2.5 py-1 text-xs " + (r.status==='high'?'bg-red-100 text-red-800 ring-1 ring-red-200': r.status==='low'?'bg-yellow-100 text-yellow-800 ring-1 ring-yellow-200':'bg-emerald-100 text-emerald-800 ring-1 ring-emerald-200')}>
+                                  {r.status==='high'?'выше':r.status==='low'?'ниже':'в норме'}
+                                </span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="overflow-x-auto">
-                <table className="min-w-full text-sm">
-                  <thead>
-                    <tr className="text-left text-slate-500">
-                      <th className="py-2 pr-4">Показатель</th>
-                      <th className="py-2 pr-4">Значение</th>
-                      <th className="py-2 pr-4">Реф. интервал</th>
-                      <th className="py-2 pr-4">Статус</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y">
-                    {items.map((r, i) => (
-                      <tr key={i} className="hover:bg-slate-50">
-                        <td className="py-2 pr-4">{r.name}</td>
-                        <td className="py-2 pr-4">{r.value} {r.unit}</td>
-                        <td className="py-2 pr-4">
-                          {r.ref
-                            ? <>{typeof r.ref.low === 'number' ? r.ref.low : '—'} — {typeof r.ref.high === 'number' ? r.ref.high : '—'} {r.unit}</>
-                            : <span className="text-slate-400">нет данных</span>}
-                        </td>
-                        <td className="py-2 pr-4"><StatusPill status={r.status} /></td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
 
@@ -276,7 +249,7 @@ export default function LabsPage() {
           <div className="rounded-2xl border-2 border-dashed border-slate-300 bg-white p-6 text-center">
             <div className="text-lg font-semibold">Загрузите результаты (PDF/PNG/JPEG)</div>
             <p className="mt-2 text-slate-600 text-sm">
-              Просто перетащите сюда файлы с лабораторными результатами. Распознавание и парсинг — в следующей итерации.
+              Перетащите сюда файлы с лабораторными результатами. Распознавание и парсинг — в следующей итерации.
             </p>
             <div className="mt-4">
               <label className="inline-block cursor-pointer rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800">
@@ -305,14 +278,6 @@ export default function LabsPage() {
               <div>
                 <label className="block text-xs text-slate-500">Ед. изм.</label>
                 <input className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" placeholder="ммоль/л" />
-              </div>
-              <div>
-                <label className="block text-xs text-slate-500">Рефер. низ</label>
-                <input className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" placeholder="3.9" />
-              </div>
-              <div>
-                <label className="block text-xs text-slate-500">Рефер. верх</label>
-                <input className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" placeholder="5.5" />
               </div>
               <div className="sm:col-span-2">
                 <button type="button" className="mt-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700">
