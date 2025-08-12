@@ -3,8 +3,7 @@ import { classNames } from "../lib/utils";
 
 export default function Button({ children, onClick, variant = "solid", icon: Icon, className = "", disabled }) {
   return (
-<>
-<button
+    <button
       onClick={onClick}
       disabled={disabled}
       className={classNames(
@@ -18,7 +17,5 @@ export default function Button({ children, onClick, variant = "solid", icon: Ico
       {Icon && <Icon className="h-4 w-4" />}
       {children}
     </button>
-</>
-);
+  );
 }
-

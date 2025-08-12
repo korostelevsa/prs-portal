@@ -1,23 +1,42 @@
-﻿import React from "react";
-import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Line, Legend } from "recharts";
+import React from 'react';
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from 'recharts';
 
-export default function RiskCurve({ points, compare }) {
+export default function RiskCurve({
+  data,
+  xKey = 'name',
+  yKey = 'value',
+  color = '#2563eb',
+  showLegend = false
+}) {
+  const demoData = [
+    { name: 'Q1', value: 12 },
+    { name: 'Q2', value: 18 },
+    { name: 'Q3', value: 9 },
+    { name: 'Q4', value: 22 },
+  ];
+  const chartData = Array.isArray(data) && data.length ? data : demoData;
+
   return (
-<>
-<ResponsiveContainer width="100%" height={220}>
-      <LineChart data={points} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" vertical={false} />
-        <XAxis dataKey="age" tick={{ fontSize: 12 }} />
-        <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 12 }} domain={[0, 100]} />
-        <Tooltip formatter={(v) => `${v}%`} labelFormatter={(l) => `Возраст ${l}`} />
-        <Line type="monotone" dataKey="risk" strokeWidth={2} dot={false} />
-        {compare && <Line type="monotone" data={compare} dataKey="risk" strokeWidth={2} dot={false} />}
-        <Legend />
-      </LineChart>
-    </ResponsiveContainer>
-</Tooltip>
-</YAxis>
-</>
-);
+    <div style={{ width: '100%', height: 320 }}>
+      <ResponsiveContainer>
+        <LineChart data={chartData} margin={{ top: 10, right: 20, bottom: 10, left: 0 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey={xKey} />
+          <YAxis />
+          <Tooltip />
+          {showLegend && <Legend />}
+          <Line type="monotone" dataKey={yKey} stroke={color} strokeWidth={2} dot={false} />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
 }
-

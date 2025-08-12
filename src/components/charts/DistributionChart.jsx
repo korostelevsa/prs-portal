@@ -10,8 +10,7 @@ export default function DistributionChart({ percentile = 50 }) {
     return { x, y };
   });
   return (
-<>
-<ResponsiveContainer width="100%" height={160}>
+    <ResponsiveContainer width="100%" height={160}>
       <AreaChart data={data} margin={{ top: 10, right: 10, bottom: 0, left: -20 }}>
         <defs>
           <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
@@ -27,9 +26,5 @@ export default function DistributionChart({ percentile = 50 }) {
         <ReferenceLine x={percentile} stroke="#ef4444" strokeDasharray="4 4" />
       </AreaChart>
     </ResponsiveContainer>
-</XAxis>
-</Tooltip>
-</>
-);
+  );
 }
-

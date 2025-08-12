@@ -1,11 +1,10 @@
-﻿import React from "react";
+import React from "react";
 import Button from "./Button";
-import { Menu, Search, User } from "lucide-react";
+import { Menu, Search, User, FlaskConical } from "lucide-react";
 
 export default function TopNav({ onNav, current }) {
   return (
-<>
-<div className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
+    <div className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
       <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="h-9 w-9 rounded-xl bg-slate-900 text-white grid place-items-center font-semibold">PRS</div>
@@ -15,13 +14,12 @@ export default function TopNav({ onNav, current }) {
           <Button variant={current === "home" ? "outline" : "ghost"} onClick={() => onNav("home")}>Главная</Button>
           <Button variant={current === "table" ? "outline" : "ghost"} onClick={() => onNav("table")} icon={Menu}>Таблица</Button>
           <Button variant={current === "catalog" ? "outline" : "ghost"} onClick={() => onNav("catalog")} icon={Search}>Категории</Button>
+          <Button variant={current === "labs" ? "outline" : "ghost"} onClick={() => onNav("labs")} icon={FlaskConical}>Анализы</Button>
         </div>
         <div className="flex items-center gap-2">
           <Button variant="outline" icon={User}>Иван П.</Button>
         </div>
       </div>
     </div>
-</>
-);
+  );
 }
-
