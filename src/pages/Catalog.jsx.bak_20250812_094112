@@ -1,0 +1,114 @@
+﻿import React, { useMemo, useState } from "react";
+import Card from "../components/Card";
+import Button from "../components/Button";
+import Chip from "../components/Chip";
+import { CONDITIONS, CATEGORY_COLORS } from "../lib/constants";
+import { toneFromPercentile } from "../lib/utils";
+import { Menu, ArrowLeft } from "lucide-react";
+
+function RiskChips({ counts }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Chip tone="bad">Высокий: {counts.bad}</Chip>
+      <Chip tone="warn">Средний: {counts.warn}</Chip>
+      <Chip tone="good">Низкий: {counts.good}</Chip>
+    </div>
+  );
+}
+
+export default function Catalog() {
+  const [selected, setSelected] = useState(null);
+
+  const categories = useMemo(() => {
+    const map = new Map();
+    for (const c of CONDITIONS) {
+      const arr = map.get(c.category) || [];
+      arr.push(c);
+      map.set(c.category, arr);
+    }
+    return Array.from(map.entries()).map(([name, items]) => {
+      const counts = { bad: 0, warn: 0, good: 0 };
+      for (const it of items) {
+        const tone = toneFromPercentile(it.percentile ?? 0);
+        counts[tone] += 1;
+      }
+      const Icon = items[0]?.icon || Menu;
+      const grad = CATEGORY_COLORS?.[name] || "from-slate-500/90 to-slate-400/70";
+      return { name, items, counts, Icon, grad };
+    });
+  }, []);
+
+  if (selected) {
+    const cat = categories.find((c) => c.name === selected);
+    return (
+      <div className="mx-auto max-w-7xl p-4 space-y-6">
+        <Button variant="ghost" onClick={() => setSelected(null)} icon={ArrowLeft}>
+          Назад к категориям
+        </Button>
+
+        <Card className="p-5">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className={`h-12 w-12 rounded-xl text-white grid place-items-center bg-gradient-to-br ${cat.grad}`}>
+                <cat.Icon className="h-6 w-6" />
+              </div>
+              <div>
+                <div className="text-xs text-slate-500">Категория</div>
+                <div className="text-xl font-semibold">{cat.name}</div>
+              </div>
+            </div>
+            <RiskChips counts={cat.counts} />
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cat.items.map((it) => {
+              const tone = toneFromPercentile(it.percentile ?? 0);
+              const label = tone === "bad" ? "Высокий" : tone === "warn" ? "Средний" : "Низкий";
+              return (
+                <Card key={it.id} className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-sm font-medium">{it.name}</div>
+                      <div className="text-xs text-slate-500">Перцентиль: {it.percentile ?? "—"}</div>
+                    </div>
+                    <Chip tone={tone}>{label}</Chip>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+        </Card>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto max-w-7xl p-4 space-y-6">
+      <div className="text-2xl font-semibold">Категории</div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {categories.map(({ name, items, counts, Icon, grad }) => (
+          <Card key={name} className="p-5">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className={`h-12 w-12 rounded-xl text-white grid place-items-center bg-gradient-to-br ${grad}`}>
+                  <Icon className="h-6 w-6" />
+                </div>
+                <div>
+                  <div className="text-xs text-slate-500">Категория</div>
+                  <div className="text-lg font-semibold">{name}</div>
+                  <div className="text-xs text-slate-500 mt-1">Всего состояний: {items.length}</div>
+                </div>
+              </div>
+              <RiskChips counts={counts} />
+            </div>
+
+            <div className="mt-4 flex justify-end">
+              <Button onClick={() => setSelected(name)}>Открыть</Button>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}

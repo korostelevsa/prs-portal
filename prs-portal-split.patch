@@ -1,0 +1,588 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 0000000..0000001 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,200 +1,27 @@
+-// original contents truncated
++import React, { useState } from "react";
++import TopNav from "./components/TopNav";
++import MainPage from "./pages/MainPage";
++import TableView from "./pages/TableView";
++import Catalog from "./pages/Catalog";
++
++export default function App() {
++  const [route, setRoute] = useState("home");
++  return (
++    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 text-slate-900">
++      <TopNav current={route} onNav={setRoute} />
++      {route === "home" && <MainPage onGo={setRoute} />}
++      {route === "table" && <TableView />}
++      {route === "catalog" && <Catalog />}
++      <footer className="mx-auto max-w-7xl p-6 text-xs text-slate-500">
++        Демо. Числа и графики иллюстративны и не являются мед. рекомендациями.
++      </footer>
++    </div>
++  );
++}
+diff --git a/src/components/Button.jsx b/src/components/Button.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/components/Button.jsx
+@@ -0,0 +1,29 @@
++import React from "react";
++import { classNames } from "../lib/utils";
++
++export default function Button({ children, onClick, variant = "solid", icon: Icon, className = "", disabled }) {
++  return (
++    <button
++      onClick={onClick}
++      disabled={disabled}
++      className={classNames(
++        "inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition",
++        variant === "solid" && "bg-slate-900 text-white hover:bg-slate-800",
++        variant === "ghost" && "hover:bg-slate-100",
++        variant === "outline" && "border border-slate-200 hover:bg-slate-50",
++        disabled && "opacity-60 cursor-not-allowed",
++        className
++      )}>
++      {Icon && <Icon className="h-4 w-4" />}
++      {children}
++    </button>
++  );
++}
+diff --git a/src/components/Card.jsx b/src/components/Card.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/components/Card.jsx
+@@ -0,0 +1,15 @@
++import React from "react";
++import { classNames } from "../lib/utils";
++
++export default function Card({ children, className = "" }) {
++  return (
++    <div className={classNames("rounded-2xl bg-white/70 backdrop-blur shadow-md ring-1 ring-slate-100", className)}>
++      {children}
++    </div>
++  );
++}
+diff --git a/src/components/Chip.jsx b/src/components/Chip.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/components/Chip.jsx
+@@ -0,0 +1,23 @@
++import React from "react";
++import { classNames } from "../lib/utils";
++
++export default function Chip({ children, tone = "slate" }) {
++  return (
++    <span
++      className={classNames(
++        "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium",
++        tone === "good" && "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200",
++        tone === "warn" && "bg-amber-50 text-amber-700 ring-1 ring-amber-200",
++        tone === "bad" && "bg-rose-50 text-rose-700 ring-1 ring-rose-200",
++        tone === "info" && "bg-sky-50 text-sky-700 ring-1 ring-sky-200",
++        tone === "slate" && "bg-slate-50 text-slate-700 ring-1 ring-slate-200"
++      )}>
++      {children}
++    </span>
++  );
++}
+diff --git a/src/components/RiskBar.jsx b/src/components/RiskBar.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/components/RiskBar.jsx
+@@ -0,0 +1,23 @@
++import React from "react";
++import { toneFromPercentile } from "../lib/utils";
++
++export default function RiskBar({ percentile }) {
++  const tone = toneFromPercentile(percentile);
++  const grad = tone === "bad" ? "from-rose-500 to-rose-400" : tone === "warn" ? "from-amber-500 to-amber-400" : "from-emerald-500 to-emerald-400";
++  return (
++    <div className="w-full">
++      <div className="h-3 w-full rounded-full bg-slate-100 overflow-hidden">
++        <div className={`h-full bg-gradient-to-r ${grad}`} style={{ width: `${percentile}%` }} />
++      </div>
++      <div className="mt-1 text-xs text-slate-600">{percentile}%</div>
++    </div>
++  );
++}
+diff --git a/src/components/SectionTitle.jsx b/src/components/SectionTitle.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/components/SectionTitle.jsx
+@@ -0,0 +1,15 @@
++import React from "react";
++
++export default function SectionTitle({ icon: Icon, title, actions }) {
++  return (
++    <div className="flex items-center justify-between gap-4">
++      <div className="flex items-center gap-2">
++        {Icon && <Icon className="h-5 w-5 text-slate-500" />}
++        <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-600">{title}</h3>
++      </div>
++      <div className="flex items-center gap-2">{actions}</div>
++    </div>
++  );
++}
+diff --git a/src/components/TopNav.jsx b/src/components/TopNav.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/components/TopNav.jsx
+@@ -0,0 +1,31 @@
++import React from "react";
++import Button from "./Button";
++import { Menu, Search, User } from "lucide-react";
++
++export default function TopNav({ onNav, current }) {
++  return (
++    <div className="sticky top-0 z-30 bg-white/80 backdrop-blur border-b border-slate-100">
++      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
++        <div className="flex items-center gap-3">
++          <div className="h-9 w-9 rounded-xl bg-slate-900 text-white grid place-items-center font-semibold">PRS</div>
++          <div className="text-slate-800 font-semibold">Polygenic Risk Portal</div>
++        </div>
++        <div className="hidden md:flex items-center gap-2">
++          <Button variant={current === "home" ? "outline" : "ghost"} onClick={() => onNav("home")}>Главная</Button>
++          <Button variant={current === "table" ? "outline" : "ghost"} onClick={() => onNav("table")} icon={Menu}>Таблица</Button>
++          <Button variant={current === "catalog" ? "outline" : "ghost"} onClick={() => onNav("catalog")} icon={Search}>Категории</Button>
++        </div>
++        <div className="flex items-center gap-2">
++          <Button variant="outline" icon={User}>Иван П.</Button>
++        </div>
++      </div>
++    </div>
++  );
++}
+diff --git a/src/components/charts/DistributionChart.jsx b/src/components/charts/DistributionChart.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/components/charts/DistributionChart.jsx
+@@ -0,0 +1,39 @@
++import React from "react";
++import { ResponsiveContainer, AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip, ReferenceLine } from "recharts";
++
++export default function DistributionChart({ percentile = 50 }) {
++  const data = new Array(101).fill(0).map((_, i) => {
++    const x = i * 2;
++    const mu = 100;
++    const sigma = 20;
++    const y = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mu) / sigma, 2));
++    return { x, y };
++  });
++  return (
++    <ResponsiveContainer width="100%" height={160}>
++      <AreaChart data={data} margin={{ top: 10, right: 10, bottom: 0, left: -20 }}>
++        <defs>
++          <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
++            <stop offset="0%" stopColor="#93c5fd" stopOpacity={0.6} />
++            <stop offset="100%" stopColor="#93c5fd" stopOpacity={0.05} />
++          </linearGradient>
++        </defs>
++        <CartesianGrid strokeDasharray="3 3" vertical={false} />
++        <XAxis dataKey="x" tickFormatter={(v) => `${v}%`} tick={{ fontSize: 12 }} />
++        <YAxis hide domain={[0, "auto"]} />
++        <Tooltip formatter={(v) => v.toFixed(4)} labelFormatter={(l) => `Перцентиль ${l}%`} />
++        <Area type="monotone" dataKey="y" stroke="#60a5fa" fill="url(#grad)" />
++        <ReferenceLine x={percentile} stroke="#ef4444" strokeDasharray="4 4" />
++      </AreaChart>
++    </ResponsiveContainer>
++  );
++}
+diff --git a/src/components/charts/RiskCurve.jsx b/src/components/charts/RiskCurve.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/components/charts/RiskCurve.jsx
+@@ -0,0 +1,32 @@
++import React from "react";
++import { ResponsiveContainer, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Line, Legend } from "recharts";
++
++export default function RiskCurve({ points, compare }) {
++  return (
++    <ResponsiveContainer width="100%" height={220}>
++      <LineChart data={points} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
++        <CartesianGrid strokeDasharray="3 3" vertical={false} />
++        <XAxis dataKey="age" tick={{ fontSize: 12 }} />
++        <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 12 }} domain={[0, 100]} />
++        <Tooltip formatter={(v) => `${v}%`} labelFormatter={(l) => `Возраст ${l}`} />
++        <Line type="monotone" dataKey="risk" strokeWidth={2} dot={false} />
++        {compare && <Line type="monotone" data={compare} dataKey="risk" strokeWidth={2} dot={false} />}
++        <Legend />
++      </LineChart>
++    </ResponsiveContainer>
++  );
++}
+diff --git a/src/lib/constants.js b/src/lib/constants.js
+new file mode 100644
+--- /dev/null
++++ b/src/lib/constants.js
+@@ -0,0 +1,55 @@
++import { Heart, Flame, Brain } from "lucide-react";
++
++export const CONDITIONS = [
++  {
++    id: "CAD",
++    name: "Коронарная болезнь сердца (CAD)",
++    category: "Сердечно-сосудистые",
++    icon: Heart,
++    percentile: 93,
++    sex: "M",
++    age: 45,
++    orPerSd: 1.62,
++    individualOR: 2.08,
++    prsZ: 1.27,
++    tenYearRisk: 0.117,
++    lifetimeRisk: 0.318,
++    validatedAncestries: ["EUR", "EAS"],
++    model: { pgsId: "PGS00XXXX", version: "1.3.2", genome: "GRCh38" },
++    qc: { callRate: 0.988, imputed: true, snpCoverage: 0.94, ancestry: "EUR" },
++  },
++  {
++    id: "T2D",
++    name: "Сахарный диабет 2 типа (T2D)",
++    category: "Метаболические",
++    icon: Flame,
++    percentile: 81,
++    sex: "M",
++    age: 45,
++    orPerSd: 1.45,
++    individualOR: 1.52,
++    prsZ: 0.88,
++    tenYearRisk: 0.082,
++    lifetimeRisk: 0.366,
++    validatedAncestries: ["EUR", "SAS", "AMR"],
++    model: { pgsId: "PGS00YYYY", version: "2.1.0", genome: "GRCh38" },
++    qc: { callRate: 0.983, imputed: true, snpCoverage: 0.91, ancestry: "EUR" },
++  },
++  {
++    id: "CRC",
++    name: "Колоректальный рак (CRC)",
++    category: "Онкология",
++    icon: Brain,
++    percentile: 72,
++    sex: "M",
++    age: 45,
++    orPerSd: 1.30,
++    individualOR: 1.23,
++    prsZ: 0.58,
++    tenYearRisk: 0.021,
++    lifetimeRisk: 0.073,
++    validatedAncestries: ["EUR", "EAS", "AFR"],
++    model: { pgsId: "PGS00ZZZZ", version: "0.9.7", genome: "GRCh38" },
++    qc: { callRate: 0.991, imputed: false, snpCoverage: 0.97, ancestry: "EUR" },
++  },
++];
+diff --git a/src/lib/utils.js b/src/lib/utils.js
+new file mode 100644
+--- /dev/null
++++ b/src/lib/utils.js
+@@ -0,0 +1,66 @@
++export function classNames(...arr) {
++  return arr.filter(Boolean).join(" ");
++}
++
++export const toneFromPercentile = (p) =>
++  p >= 85 ? "bad" : p >= 50 ? "warn" : "good";
++
++export const labelFromPercentile = (p) =>
++  p >= 85 ? "Высокий" : p >= 50 ? "Выше среднего" : "Средний/ниже";
++
++export function hazardMultiplierFromPRS(z) {
++  const orPerSD = 1.6;
++  return Math.pow(orPerSD, z || 0);
++}
++export function hazardMultipliersFromLifestyle({ smoking, ldlImproved, bmiDelta, activity } = {}) {
++  let m = 1.0;
++  if (smoking) m *= 1.6;
++  if (ldlImproved) m *= 0.8;
++  if ((bmiDelta ?? 0) <= -5) m *= 0.88;
++  if (activity) m *= 0.9;
++  return m;
++}
++export function buildAbsoluteRiskCurve({ base, ageStart = 30, ageEnd = 80, prsZ = 0, lifestyle } = {}) {
++  const points = [];
++  const hzPRS = hazardMultiplierFromPRS(prsZ);
++  const hzLife = hazardMultipliersFromLifestyle(lifestyle);
++  const k = base?.k ?? 0.07;
++  const base40 = base?.base40 ?? 0.02;
++  for (let age = ageStart; age <= ageEnd; age += 1) {
++    const years = Math.max(0, age - ageStart);
++    const cumHazBaseline = base40 * ((Math.exp(k * years) - 1) / k);
++    const cumHaz = cumHazBaseline * hzPRS * hzLife;
++    const risk = 1 - Math.exp(-cumHaz);
++    points.push({ age, risk: Number((risk * 100).toFixed(2)) });
++  }
++  return points;
++}
++
++(function runSelfTests() {
++  try {
++    const pts = buildAbsoluteRiskCurve({});
++    console.assert(Array.isArray(pts) && pts.length > 0, "Risk curve points generated");
++    console.assert(pts[pts.length - 1].risk >= pts[0].risk, "Risk curve non-decreasing");
++    console.assert(labelFromPercentile(10) === "Средний/ниже", "Label low ok");
++    console.assert(labelFromPercentile(55) === "Выше среднего", "Label mid ok");
++    console.assert(labelFromPercentile(90) === "Высокий", "Label high ok");
++  } catch (e) {}
++})();
+diff --git a/src/pages/Catalog.jsx b/src/pages/Catalog.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/pages/Catalog.jsx
+@@ -0,0 +1,109 @@
++import React, { useMemo, useState } from "react";
++import Card from "../components/Card";
++import Button from "../components/Button";
++import Chip from "../components/Chip";
++import TableView from "./TableView";
++import { CONDITIONS } from "../lib/constants";
++import { Menu, ArrowLeft } from "lucide-react";
++
++export default function Catalog() {
++  const [selected, setSelected] = useState(null);
++  const groups = useMemo(() => {
++    const map = {};
++    for (const c of CONDITIONS) {
++      (map[c.category] = map[c.category] || []).push(c);
++    }
++    return map;
++  }, []);
++
++  const statsFor = (arr) => {
++    const n = arr.length;
++    const avg = Math.round(arr.reduce((s, x) => s + x.percentile, 0) / n);
++    const high = arr.filter((x) => x.percentile >= 85).length;
++    const ancestries = Array.from(new Set(arr.flatMap((x) => x.validatedAncestries))).slice(0, 5).join(", ");
++    return { n, avg, high, ancestries };
++  };
++
++  if (selected) {
++    const items = groups[selected] || [];
++    const s = statsFor(items);
++    return (
++      <div className="mx-auto max-w-7xl p-4 space-y-4">
++        <div className="flex items-center justify-between">
++          <div>
++            <div className="text-xs text-slate-500">Категория</div>
++            <div className="text-xl font-semibold">{selected}</div>
++            <div className="text-sm text-slate-600 mt-1">
++              Состояний: {s.n} · Ср. перцентиль: {s.avg}% · Высокий риск (≥85%): {s.high}
++            </div>
++          </div>
++          <Button variant="outline" icon={ArrowLeft} onClick={() => setSelected(null)}>Назад к категориям</Button>
++        </div>
++        <TableView items={items} />
++      </div>
++    );
++  }
++
++  const entries = Object.entries(groups);
++  return (
++    <div className="mx-auto max-w-7xl p-4 space-y-4">
++      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
++        {entries.map(([cat, arr]) => {
++          const s = statsFor(arr);
++          return (
++            <Card key={cat} className="p-5">
++              <div className="flex items-start justify-between">
++                <div>
++                  <div className="text-xs text-slate-500">Категория</div>
++                  <div className="text-lg font-semibold">{cat}</div>
++                  <div className="mt-2 flex flex-wrap gap-2">
++                    <Chip tone="info">Состояний: {s.n}</Chip>
++                    <Chip>Ср. перцентиль: {s.avg}%</Chip>
++                    <Chip tone={s.high>0?'warn':'good'}>Высокий риск: {s.high}</Chip>
++                  </div>
++                  <div className="mt-2 text-xs text-slate-500">Валидации: {s.ancestries || '—'}</div>
++                </div>
++                <div className="h-12 w-12 rounded-xl text-white grid place-items-center bg-gradient-to-br from-slate-500 to-slate-400">
++                  <Menu className="h-6 w-6" />
++                </div>
++              </div>
++              <div className="mt-4 flex justify-end"><Button onClick={()=>setSelected(cat)}>Открыть</Button></div>
++            </Card>
++          );
++        })}
++      </div>
++    </div>
++  );
++}
+diff --git a/src/pages/MainPage.jsx b/src/pages/MainPage.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/pages/MainPage.jsx
+@@ -0,0 +1,176 @@
++import React from "react";
++import Card from "../components/Card";
++import Button from "../components/Button";
++import Chip from "../components/Chip";
++import SectionTitle from "../components/SectionTitle";
++import DistributionChart from "../components/charts/DistributionChart";
++import { Activity, Stethoscope, BookOpen, PercentCircle, Info, Search, Menu, FlaskConical, Heart } from "lucide-react";
++
++export default function MainPage({ onGo }) {
++  const steps = [
++    { t: "Сырьё", d: "WGS/генотипирование → VCF/PLINK" },
++    { t: "QC", d: "Фильтры по call rate, MAF, палиндромы, выравнивание аллелей" },
++    { t: "Счёт PRS", d: "Σ (генотип × вес из GWAS/PGS)" },
++    { t: "Нормализация", d: "Перцентиль/SD внутри эталонной когорты" },
++    { t: "Интерпретация", d: "Относительный и абсолютный риск, с учётом факторов" },
++  ];
++  const faq = [
++    { q: "PRS = диагноз?", a: "Нет. Это статистическая оценка предрасположенности и относительного риска." },
++    { q: "Почему у нас с братом разные PRS?", a: "Из‑за рекомбинации и независимого наследования полигенных вариантов." },
++    { q: "Можно ли снизить риск?", a: "Да. Образ жизни и контроль факторов (АД, ЛПНП, масса тела, активность) меняют абсолютный риск." },
++    { q: "Важна ли ancestry?", a: "Да. Модели чаще обучены на EUR; переносимость на другие группы ограничена и требует калибровки." },
++  ];
++
++  return (
++    <div className="mx-auto max-w-7xl p-4 space-y-6">
++      {/* Баннер */}
++      <div className="rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-400 text-white p-6 shadow-md flex items-center justify-between">
++        <div>
++          <h2 className="text-2xl font-bold">Новая версия PRS портала</h2>
++          <p className="mt-1 text-sm">Теперь с расширенной статистикой и улучшенной визуализацией</p>
++        </div>
++        <img
++          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
++          alt="Banner Icon"
++          className="h-16 w-16"
++        />
++      </div>
++
++      <Card className="p-8 bg-gradient-to-br from-slate-50 to-white">
++        <div className="text-xs text-slate-500">Посадочная страница</div>
++        <div className="mt-1 text-3xl font-semibold">Polygenic Risk Scores (PRS)</div>
++        {/* В JSX комментарии пишутся так */}
++        <div className="mt-2 text-slate-600 max-w-3xl">
++          Полигенные рисковые баллы объединяют множество генетических вариантов (SNP) в одну метрику
++          предрасположенности. Здесь вы найдёте объяснение, как считается PRS, как читать отчёт и где он полезен.
++        </div>
++        <div className="mt-4 flex flex-wrap gap-2">
++          <Button onClick={() => onGo?.("table")} icon={Menu}>Открыть таблицу состояний</Button>
++          <Button variant="outline" onClick={() => onGo?.("catalog")} icon={Search}>Перейти к категориям</Button>
++        </div>
++      </Card>
++
++      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
++        <Card className="p-5">
++          <SectionTitle title="Что такое PRS" icon={Info} />
++          <div className="mt-3 text-sm text-slate-700">
++            PRS — взвешенная сумма эффектов SNP (весов β или log(OR)), полученных из GWAS. Значение сравнивается с
++            референсной когортой и переводится в перцентиль.
++          </div>
++        </Card>
++        <Card className="p-5">
++          <SectionTitle title="Как считается" icon={FlaskConical} />
++          <ul className="mt-3 list-disc list-inside text-sm text-slate-700">
++            <li>Веса берутся из валидированных полигенных моделей (PGS Catalog/литература).</li>
++            <li>Учитываются LD и метод построения (PRS‑CS/LDpred/CT и др.).</li>
++            <li>Контроль QC и согласования аллелей обязателен.</li>
++          </ul>
++        </Card>
++        <Card className="p-5">
++          <SectionTitle title="Как читать результат" icon={BookOpen} />
++          <ul className="mt-3 list-disc list-inside text-sm text-slate-700">
++            <li>Перцентиль и категория риска (низкий/средний/высокий).</li>
++            <li>Относительный риск (например, OR по сравнению со средним).</li>
++            <li>Абсолютный риск зависит от возраста, пола и факторов образа жизни.</li>
++          </ul>
++        </Card>
++      </div>
++
++      <Card className="p-5">
++        <SectionTitle title="Распределение PRS в популяции" icon={PercentCircle} />
++        <div className="mt-2 text-sm text-slate-700">
++          Ваше положение на кривой показано красной линией. Большинство людей — около середины; «хвосты» соответствуют
++          заметно выше/ниже среднего риску.
++        </div>
++        <div className="mt-3"><DistributionChart percentile={75} /></div>
++        <div className="mt-2 flex flex-wrap gap-2 text-xs text-slate-500">
++          <Chip tone="good">Средний/ниже</Chip>
++          <Chip tone="warn">Выше среднего</Chip>
++          <Chip tone="bad">Высокий</Chip>
++        </div>
++      </Card>
++
++      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
++        <Card className="p-5">
++          <SectionTitle title="Относительный риск" icon={Activity} />
++          <div className="mt-3 text-sm text-slate-700">
++            Показывает, во сколько раз ваша вероятность исхода отличается от среднего уровня в популяции. Зависит от перцентиля PRS.
++          </div>
++        </Card>
++        <Card className="p-5">
++          <SectionTitle title="Абсолютный риск" icon={Stethoscope} />
++          <div className="mt-3 text-sm text-slate-700">
++            Вероятность события за период (например, 10 лет) с учётом возраста, пола и модифицируемых факторов (курение, ЛПНП, ИМТ, активность).
++          </div>
++        </Card>
++      </div>
++
++      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
++        <Card className="p-5">
++          <SectionTitle title="Где PRS полезен" icon={Heart} />
++          <ul className="mt-3 list-disc list-inside text-sm text-slate-700">
++            <li>Стратификация профилактики (например, CAD, T2D, CRC).</li>
++            <li>Ранжирование интенсивности наблюдения и скрининга.</li>
++            <li>Комбинация с клиническими шкалами для персонализации.</li>
++          </ul>
++        </Card>
++        <Card className="p-5">
++          <SectionTitle title="Ограничения" icon={Info} />
++          <ul className="mt-3 list-disc list-inside text-sm text-slate-700">
++            <li>Не диагностирует заболевание.</li>
++            <li>Переносимость между этничностями может снижаться.</li>
++            <li>Требуется корректная калибровка абсолютного риска.</li>
++          </ul>
++        </Card>
++      </div>
++
++      <Card className="p-5">
++        <SectionTitle title="Конвейер анализа данных" icon={FlaskConical} />
++        <div className="mt-3 grid grid-cols-1 md:grid-cols-5 gap-3 text-sm">
++          {steps.map((s, i) => (
++            <div key={i} className="rounded-xl p-3 ring-1 ring-slate-200 bg-white/60">
++              <div className="text-xs text-slate-500">Шаг {i + 1}</div>
++              <div className="font-medium">{s.t}</div>
++              <div className="text-slate-600 mt-1">{s.d}</div>
++            </div>
++          ))}
++        </div>
++      </Card>
++
++      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
++        <Card className="p-5">
++          <SectionTitle title="Частые вопросы" icon={BookOpen} />
++          <div className="mt-3 space-y-3">
++            {faq.map((f, i) => (
++              <div key={i} className="text-sm">
++                <div className="font-medium">{f.q}</div>
++                <div className="text-slate-700">{f.a}</div>
++              </div>
++            ))}
++          </div>
++        </Card>
++        <Card className="p-5">
++          <SectionTitle title="Ссылки и источники" icon={BookOpen} />
++          <ul className="mt-3 list-disc list-inside text-sm text-slate-700">
++            <li>PGS Catalog — реестр полигенных моделей.</li>
++            <li>GWAS Catalog — ассоциации SNP‑фенотип.</li>
++            <li>UK Biobank — эталонная ресурсная когорта.</li>
++          </ul>
++          <div className="mt-3 text-xs text-slate-500">
++            Материал носит образовательный характер и не заменяет консультацию врача.
++          </div>
++        </Card>
++      </div>
++    </div>
++  );
++}
+diff --git a/src/pages/TableView.jsx b/src/pages/TableView.jsx
+new file mode 100644
+--- /dev/null
++++ b/src/pages/TableView.jsx
+@@ -0,0 +1,60 @@
++import React from "react";
++export default function TableView(){ return <div className='p-6'>TODO: перенесено из монолита (см. предыдущую версию)</div> }
