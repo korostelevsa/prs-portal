@@ -5,3 +5,14 @@ venv/
 .venv/
 *_fq_metrics*.txt
 *_fq_metrics*.tsv
+*.bak_*
+*.bak
+*.orig
+*.rej
+node_modules/
+dist/
+build/
+.cache/
+.next/
+.turbo/
+coverage/
