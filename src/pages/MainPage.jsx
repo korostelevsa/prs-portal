@@ -181,11 +181,8 @@ export default function MainPage({ onGo }) {
         <LegacyMain onGo={onGo} />
       </section>
     </div>
-</div>
-</div>
-</div>
-</div>
 </>
 );
 }
+
 
