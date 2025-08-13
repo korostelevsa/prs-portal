@@ -339,8 +339,8 @@ function InlineDetail({ condition }) {
           <div className="mt-1 text-2xl font-bold">{labelFromPercentile(condition.percentile)}</div>
           <div className="mt-2 text-sm text-slate-600">Перцентиль {condition.percentile} · OR/инд: {condition.individualOR.toFixed(2)}</div>
           <div className="mt-4 grid grid-cols-2 gap-3">
-            <Card className="p-3 text-center"><div className="text-xs text-slate-500">10-летний риск</div><div className="text-base md:text-lg font-semibold leading-tight tracking-tight">{(condition.tenYearRisk*100).toFixed(1)}%</div></Card>
-            <Card className="p-3 text-center"><div className="text-xs text-slate-500">Пожизненный риск</div><div className="text-base md:text-lg font-semibold leading-tight tracking-tight">{(condition.lifetimeRisk*100).toFixed(1)}%</div></Card>
+            <Card className="p-3 text-center"><div className="text-xs text-slate-500">10-летний риск</div><div className="text-xl font-bold">{(condition.tenYearRisk*100).toFixed(1)}%</div></Card>
+            <Card className="p-3 text-center"><div className="text-xs text-slate-500">Пожизненный риск</div><div className="text-xl font-bold">{(condition.lifetimeRisk*100).toFixed(1)}%</div></Card>
           </div>
         </Card>
         <Card className="p-5 md:col-span-2">

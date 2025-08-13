@@ -1,6 +1,6 @@
-﻿import React from "react";
+import React from "react";
 import Button from "./Button";
-import { Menu, Search, User } from "lucide-react";
+import { Menu, User } from "lucide-react";
 
 export default function TopNav({ onNav, current }) {
   return (
@@ -11,9 +11,12 @@ export default function TopNav({ onNav, current }) {
           <div className="text-slate-800 font-semibold">Polygenic Risk Portal</div>
         </div>
         <div className="hidden md:flex items-center gap-2">
-          <Button variant={current === "home" ? "outline" : "ghost"} onClick={() => onNav("home")}>Главная</Button>
+          <Button variant={current === "labs" ? "outline" : "ghost"} onClick={() => onNav("labs")}>Анализы</Button>
+          <Button variant={current === "exams" ? "outline" : "ghost"} onClick={() => onNav("exams")}>Обследования</Button>
+          <Button variant={current === "symptoms" ? "outline" : "ghost"} onClick={() => onNav("symptoms")}>Симптомы</Button>
+          <Button variant={current === "treatment" ? "outline" : "ghost"} onClick={() => onNav("treatment")}>Лечение</Button>
           <Button variant={current === "table" ? "outline" : "ghost"} onClick={() => onNav("table")} icon={Menu}>Таблица</Button>
-          <Button variant={current === "catalog" ? "outline" : "ghost"} onClick={() =>Генетика</Button>
+          <Button variant={current === "catalog" ? "outline" : "ghost"} onClick={() => onNav("catalog")} icon={Menu}>Генетика</Button>
         </div>
         <div className="flex items-center gap-2">
           <Button variant="outline" icon={User}>Иван П.</Button>
