@@ -3,99 +3,75 @@ import Card from "../components/Card";
 import Button from "../components/Button";
 import Chip from "../components/Chip";
 import TableView from "./TableView";
-import { CONDITIONS, CATEGORY_COLORS } from "../lib/constants";
-import { toneFromPercentile } from "../lib/utils";
+import { CONDITIONS } from "../lib/constants";
 import { Menu, ArrowLeft } from "lucide-react";
-
-// Вертикальная стопка чипов риска (справа)
-function RiskStack({ counts, className = "" }) {
-  return (
-    <div className={"flex flex-col items-end gap-1 " + className}>
-      <Chip tone="bad">Высокий: {counts.bad}</Chip>
-      <Chip tone="warn">Средний: {counts.warn}</Chip>
-      <Chip tone="good">Низкий: {counts.good}</Chip>
-    </div>
-  );
-}
 
 export default function Catalog() {
   const [selected, setSelected] = useState(null);
-
-  // Группировка по категориям и подсчёт разбивки по уровням риска
-  const categories = useMemo(() => {
-    const map = new Map();
+  const groups = useMemo(() => {
+    const map = {};
     for (const c of CONDITIONS) {
-      const arr = map.get(c.category) || [];
-      arr.push(c);
-      map.set(c.category, arr);
+      (map[c.category] = map[c.category] || []).push(c);
     }
-    return Array.from(map.entries()).map(([name, items]) => {
-      const counts = { bad: 0, warn: 0, good: 0 };
-      for (const it of items) {
-        const tone = toneFromPercentile(it.percentile ?? 0);
-        counts[tone] += 1;
-      }
-      const Icon = items[0]?.icon || Menu;
-      const grad = CATEGORY_COLORS?.[name] || "from-slate-500/90 to-slate-400/70";
-      const avg = Math.round(items.reduce((s, x) => s + (x.percentile ?? 0), 0) / (items.length || 1));
-      return { name, items, counts, Icon, grad, avg };
-    });
+    return map;
   }, []);
 
+  const statsFor = (arr) => {
+    const n = arr.length;
+    const avg = Math.round(arr.reduce((s, x) => s + x.percentile, 0) / n);
+    const high = arr.filter((x) => x.percentile >= 85).length;
+    const ancestries = Array.from(new Set(arr.flatMap((x) => x.validatedAncestries))).slice(0, 5).join(", ");
+    return { n, avg, high, ancestries };
+  };
+
   if (selected) {
-    const cat = categories.find((c) => c.name === selected);
+    const isAll = selected === '__ALL__';
+    const items = isAll ? CONDITIONS : (groups[selected] || []);
+    const s = statsFor(items);
     return (
       <div className="mx-auto max-w-7xl p-4 space-y-4">
         <div className="flex items-center justify-between">
-          <Button variant="outline" icon={ArrowLeft} onClick={() => setSelected(null)}>Назад к категориям</Button>
-        </div>
-
-        <Card className="relative p-5">
-          <div className="flex items-start gap-3 pr-28">
-            <div className={`h-12 w-12 rounded-xl text-white grid place-items-center bg-gradient-to-br ${cat.grad}`}>
-              <cat.Icon className="h-6 w-6" />
-            </div>
-            <div className="text-left">
-              <div className="text-xs text-slate-500">Категория</div>
-              <div className="text-xl font-semibold">{cat.name}</div>
-              <div className="mt-1 text-xs text-slate-500">Всего состояний: {cat.items.length}</div>
-              <div className="text-xs text-slate-500">Ср. перцентиль: {cat.avg}%</div>
+          <div>
+            <div className="text-xs text-slate-500">{isAll ? 'Раздел' : 'Категория'}</div>
+            <div className="text-xl font-semibold">{isAll ? 'Все риски' : selected}</div>
+            <div className="text-sm text-slate-600 mt-1">
+              Состояний: {s.n} · Ср. перцентиль: {s.avg}% · Высокий риск (≥85%): {s.high}
             </div>
           </div>
-          <RiskStack counts={cat.counts} className="absolute right-5 top-5" />
-        </Card>
-
-        <TableView items={cat.items} />
+          <Button variant="outline" icon={ArrowLeft} onClick={() => setSelected(null)}>Назад к категориям</Button>
+        </div>
+        <TableView items={items} />
       </div>
     );
   }
 
+  const entries = Object.entries(groups);
   return (
     <div className="mx-auto max-w-7xl p-4 space-y-4">
-      <div className="text-2xl font-semibold">Категории</div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {categories.map(({ name, items, counts, Icon, grad, avg }) => (
-          <Card key={name} className="relative p-5">
-            <div className="flex items-start gap-3 pr-28">
-              <div className={`h-12 w-12 rounded-xl text-white grid place-items-center bg-gradient-to-br ${grad}`}>
-                <Icon className="h-6 w-6" />
+        {entries.map(([cat, arr]) => {
+          const s = statsFor(arr);
+          return (
+            <Card key={cat} className="p-5">
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="text-xs text-slate-500">Категория</div>
+                  <div className="text-lg font-semibold">{cat}</div>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <Chip tone="info">Состояний: {s.n}</Chip>
+                    <Chip>Ср. перцентиль: {s.avg}%</Chip>
+                    <Chip tone={s.high>0?'warn':'good'}>Высокий риск: {s.high}</Chip>
+                  </div>
+                  <div className="mt-2 text-xs text-slate-500">Валидации: {s.ancestries || '—'}</div>
+                </div>
+                <div className="h-12 w-12 rounded-xl text-white grid place-items-center bg-gradient-to-br from-slate-500 to-slate-400">
+                  <Menu className="h-6 w-6" />
+                </div>
               </div>
-              <div className="text-left">
-                <div className="text-xs text-slate-500">Категория</div>
-                <div className="text-lg font-semibold">{name}</div>
-                <div className="mt-1 text-xs text-slate-500">Всего состояний: {items.length}</div>
-                <div className="text-xs text-slate-500">Ср. перцентиль: {avg}%</div>
-              </div>
-            </div>
-
-            {/* Вертикальные чипы рисков фиксируются в правом верхнем углу карточки */}
-            <RiskStack counts={counts} className="absolute right-5 top-5" />
-
-            <div className="mt-4 flex justify-end">
-              <Button onClick={() => setSelected(name)}>Открыть</Button>
-            </div>
-          </Card>
-        ))}
+              <div className="mt-4 flex justify-end"><Button onClick={()=>setSelected(cat)}>Открыть</Button></div>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
