@@ -1,0 +1,572 @@
+{
+  "vector_stores": {
+    "vs_689ec1422a388191aaba6026dd75ad8a": {
+      "files": {
+        "MainPage.js": {
+          "local_rel_path": "/mnt/c/Users/koros/PycharmProjects/GPT/ChatGPT_SIte_1/outbox/2025-08-15_11-45-30/changed/src/pages/MainPage.jsx",
+          "vs_filename": "MainPage.js",
+          "sha256": "e858039c11133f4df4bd6d7da75da3c28f07fc4ebded8379ad5253994cde3f92",
+          "size": 7527,
+          "file_id": "file-ECvH8jRCCexZrwuz4NnUPp",
+          "vs_file_id": "file-ECvH8jRCCexZrwuz4NnUPp",
+          "uploaded_at": "2025-08-15T10:34:00.058504+00:00",
+          "job_id": "2025-08-15_11-45-30"
+        },
+        ".openai_vs_manifest.json": {
+          "local_rel_path": ".openai_vs_manifest.json",
+          "vs_filename": ".openai_vs_manifest.json",
+          "sha256": "a671244c0cbc2877ca88b2c5a635b7c68613aecf81c9afa59ee39fcfbe519d4e",
+          "size": 5733,
+          "mtime": 1755221960.1446214,
+          "file_id": "file-8njP32XePoBQdPwiQvD2bP",
+          "vs_file_id": "file-8njP32XePoBQdPwiQvD2bP",
+          "uploaded_at": "2025-08-15T10:59:36.725023+00:00"
+        },
+        "index.html": {
+          "sha256": "0e9ce17c7f3776f6cb98adfee975086a2d7e5b53884e09abf544758a0734a233",
+          "size": 736,
+          "mtime": 1755352185,
+          "remote_file_id": "file-ETcNt31BqUQHpKivXAaqQu",
+          "remote_filename": "index.html",
+          "normalized": false,
+          "uploaded_at": "2025-08-16T14:54:51.551801+00:00"
+        },
+        "package-lock.json": {
+          "local_rel_path": "package-lock.json",
+          "vs_filename": "package-lock.json",
+          "sha256": "e1d76ee997799f579d05f527b2b8d017a55406171bc71bf23bbf668436b3028f",
+          "size": 118398,
+          "mtime": 1755221960.1503992,
+          "file_id": "file-L9BCiYb6DqzLMuBajaV9RU",
+          "vs_file_id": "file-L9BCiYb6DqzLMuBajaV9RU",
+          "uploaded_at": "2025-08-15T10:59:40.743938+00:00"
+        },
+        "package.json": {
+          "local_rel_path": "package.json",
+          "vs_filename": "package.json",
+          "sha256": "be44fd5ac001b5e90523ccf8b7e23dd6a8d7b0b665dc8712f06514f51f4a4298",
+          "size": 556,
+          "mtime": 1755221960.1503992,
+          "file_id": "file-SDjqaVSw8bcZCGTR58uJ3M",
+          "vs_file_id": "file-SDjqaVSw8bcZCGTR58uJ3M",
+          "uploaded_at": "2025-08-15T10:59:42.063778+00:00"
+        },
+        "postcss.config.js": {
+          "local_rel_path": "postcss.config.js",
+          "vs_filename": "postcss.config.js",
+          "sha256": "190c877db466995bf1482f4a16abd06e04a89ede3119341e2a86ff96e1737b27",
+          "size": 80,
+          "mtime": 1755221960.1622765,
+          "file_id": "file-RSWS2Foj8K2tZKGnKRS7et",
+          "vs_file_id": "file-RSWS2Foj8K2tZKGnKRS7et",
+          "uploaded_at": "2025-08-15T10:59:43.391257+00:00"
+        },
+        "tailwind.config.js": {
+          "local_rel_path": "tailwind.config.js",
+          "vs_filename": "tailwind.config.js",
+          "sha256": "2248bf828c19499e4a34a9d6696bc862cd53989239b7b4a61a76eef20bfacb79",
+          "size": 182,
+          "mtime": 1755221960.177922,
+          "file_id": "file-JLQeGbbTS6rCSiDYyXvRyW",
+          "vs_file_id": "file-JLQeGbbTS6rCSiDYyXvRyW",
+          "uploaded_at": "2025-08-15T10:59:44.873400+00:00"
+        },
+        "vite.config.js": {
+          "local_rel_path": "vite.config.js",
+          "vs_filename": "vite.config.js",
+          "sha256": "51ee874358bd542e0640c8481181983aaf26eb1afdf49452853349a604931d09",
+          "size": 166,
+          "mtime": 1755221959.9655485,
+          "file_id": "file-Fer8C5o9ec457zDKa2JHi2",
+          "vs_file_id": "file-Fer8C5o9ec457zDKa2JHi2",
+          "uploaded_at": "2025-08-15T10:59:46.306422+00:00"
+        },
+        "src__App.js": {
+          "local_rel_path": "src/App.jsx",
+          "vs_filename": "src__App.js",
+          "sha256": "7c3952dcb01b1fee33fa01c7a07e3642e9af95e6d4877a1044395f1b0585cf66",
+          "size": 1178,
+          "mtime": 1755221959.9827673,
+          "file_id": "file-UxX9qz4B1swiaiMJLeTPo1",
+          "vs_file_id": "file-UxX9qz4B1swiaiMJLeTPo1",
+          "uploaded_at": "2025-08-15T10:59:48.273524+00:00"
+        },
+        "src__index.css": {
+          "local_rel_path": "src/index.css",
+          "vs_filename": "src__index.css",
+          "sha256": "76f83b43a2b8b010b645fc6cb666ce2bca9d64ceb079da6bce34545a4fb436e7",
+          "size": 1033,
+          "mtime": 1755242076.8361478,
+          "file_id": "file-2JWVyUrqXta9whKXRa1mcz",
+          "vs_file_id": "file-2JWVyUrqXta9whKXRa1mcz",
+          "uploaded_at": "2025-08-15T10:59:49.523958+00:00"
+        },
+        "src__main.js": {
+          "local_rel_path": "src/main.jsx",
+          "vs_filename": "src__main.js",
+          "sha256": "acb24feb3540b5ee687f5a65bdbb81fe3644aa19da89256bc24b18d8ee010410",
+          "size": 235,
+          "mtime": 1755221959.990427,
+          "file_id": "file-38oVBWSUeG1VEpxH17pYZb",
+          "vs_file_id": "file-38oVBWSUeG1VEpxH17pYZb",
+          "uploaded_at": "2025-08-15T10:59:50.724331+00:00"
+        },
+        "src__components__Button.js": {
+          "local_rel_path": "src/components/Button.jsx",
+          "vs_filename": "src__components__Button.js",
+          "sha256": "aba7276e4a90362c96d76f9bc6be4da90c95170a7545cc2e43b3f33864f79c90",
+          "size": 755,
+          "mtime": 1755221959.9942315,
+          "file_id": "file-ELVT4WHLEpXEv54e1Abzt5",
+          "vs_file_id": "file-ELVT4WHLEpXEv54e1Abzt5",
+          "uploaded_at": "2025-08-15T10:59:52.173670+00:00"
+        },
+        "src__components__Card.js": {
+          "local_rel_path": "src/components/Card.jsx",
+          "vs_filename": "src__components__Card.js",
+          "sha256": "9c5c3edda0d1ade32a1656d41ecaaa24f7929a3efe25be38d7ad7b77ee24c03f",
+          "size": 298,
+          "mtime": 1755221960.0022888,
+          "file_id": "file-66t5MWp3N7GqciHvyS5kNg",
+          "vs_file_id": "file-66t5MWp3N7GqciHvyS5kNg",
+          "uploaded_at": "2025-08-15T10:59:53.573861+00:00"
+        },
+        "src__components__Chip.js": {
+          "local_rel_path": "src/components/Chip.jsx",
+          "vs_filename": "src__components__Chip.js",
+          "sha256": "a65234690cc305174ff33f81b178cf30b96653a0c9e15efd6348cc661d5f4b36",
+          "size": 701,
+          "mtime": 1755221960.011403,
+          "file_id": "file-K5GXykahbUS8MeQECr3mcX",
+          "vs_file_id": "file-K5GXykahbUS8MeQECr3mcX",
+          "uploaded_at": "2025-08-15T10:59:54.793620+00:00"
+        },
+        "src__components__GeneticsSection.js": {
+          "local_rel_path": "src/components/GeneticsSection.jsx",
+          "vs_filename": "src__components__GeneticsSection.js",
+          "sha256": "42ac9d232863cdf3c60f8f162cb7d6a3dd6ea137f57b4ea49549961e659f5cb1",
+          "size": 381,
+          "mtime": 1755221960.0204985,
+          "file_id": "file-SPfdSV5zpfhEnxoiGu8W67",
+          "vs_file_id": "file-SPfdSV5zpfhEnxoiGu8W67",
+          "uploaded_at": "2025-08-15T10:59:56.053815+00:00"
+        },
+        "src__components__GrapesEditor.js": {
+          "local_rel_path": "src/components/GrapesEditor.jsx",
+          "vs_filename": "src__components__GrapesEditor.js",
+          "sha256": "d37c1f46dc2c76849e9de78306d38cd2c0a1133d77c388698cdffeb8db2f1c5a",
+          "size": 767,
+          "mtime": 1755221960.0247693,
+          "file_id": "file-E9kQkBt7Y9XXQnsYTnQPDP",
+          "vs_file_id": "file-E9kQkBt7Y9XXQnsYTnQPDP",
+          "uploaded_at": "2025-08-15T10:59:57.283575+00:00"
+        },
+        "src__components__MainMenu.js": {
+          "local_rel_path": "src/components/MainMenu.jsx",
+          "vs_filename": "src__components__MainMenu.js",
+          "sha256": "d47e38149438136267aad5aa29e1b50765a794942eab22589395c4558fc68fc8",
+          "size": 434,
+          "mtime": 1755221960.0279806,
+          "file_id": "file-7gQLB53AcaWzYbncP28kJv",
+          "vs_file_id": "file-7gQLB53AcaWzYbncP28kJv",
+          "uploaded_at": "2025-08-15T10:59:58.564501+00:00"
+        },
+        "src__components__RiskBar.js": {
+          "local_rel_path": "src/components/RiskBar.jsx",
+          "vs_filename": "src__components__RiskBar.js",
+          "sha256": "92f6e28f6b85eb82944b1d710e9a5615a59bf10e7ef86c743dd560cc746039bf",
+          "size": 643,
+          "mtime": 1755221960.0285034,
+          "file_id": "file-QcoUmV13FkyBooSFUK5kZQ",
+          "vs_file_id": "file-QcoUmV13FkyBooSFUK5kZQ",
+          "uploaded_at": "2025-08-15T11:00:00.013945+00:00"
+        },
+        "src__components__SectionTitle.js": {
+          "local_rel_path": "src/components/SectionTitle.jsx",
+          "vs_filename": "src__components__SectionTitle.js",
+          "sha256": "dc47be9f79e8e17bc5b6dd20008afe8f0aece15b382e6a7148dab463d5fabb8a",
+          "size": 477,
+          "mtime": 1755221960.0355256,
+          "file_id": "file-RziKJZpWuJve78fjBbp6Gc",
+          "vs_file_id": "file-RziKJZpWuJve78fjBbp6Gc",
+          "uploaded_at": "2025-08-15T11:00:01.514533+00:00"
+        },
+        "src__components__TopNav.js": {
+          "local_rel_path": "src/components/TopNav.jsx",
+          "vs_filename": "src__components__TopNav.js",
+          "sha256": "65e85de71966fef5099473e1c7ee5597e23f42b0cbaa118b74b7ca54328faf07",
+          "size": 2696,
+          "mtime": 1755242076.9418356,
+          "file_id": "file-M6y7gxbzZJE9NzRSAQ6ujZ",
+          "vs_file_id": "file-M6y7gxbzZJE9NzRSAQ6ujZ",
+          "uploaded_at": "2025-08-15T11:00:03.019172+00:00"
+        },
+        "src__lib__constants.js": {
+          "local_rel_path": "src/lib/constants.js",
+          "vs_filename": "src__lib__constants.js",
+          "sha256": "0169cfbb76e136ea68b0659f4113d611faf83a4972ac872576f1c564c60f7af0",
+          "size": 1831,
+          "mtime": 1755221960.0671005,
+          "file_id": "file-Qj4ncGmTka3L86SwjxQHSA",
+          "vs_file_id": "file-Qj4ncGmTka3L86SwjxQHSA",
+          "uploaded_at": "2025-08-15T11:00:04.294429+00:00"
+        },
+        "src__lib__utils.js": {
+          "local_rel_path": "src/lib/utils.js",
+          "vs_filename": "src__lib__utils.js",
+          "sha256": "117e5e4a40b2d26fe4c29ca8cf3a5a1e4ceaa76f8bf1837877628ed5c3dd31e9",
+          "size": 1868,
+          "mtime": 1755221960.0671005,
+          "file_id": "file-W5NzEBRtQVqpHCCDZ7c7uk",
+          "vs_file_id": "file-W5NzEBRtQVqpHCCDZ7c7uk",
+          "uploaded_at": "2025-08-15T11:00:06.013555+00:00"
+        },
+        "src__pages__Catalog.js": {
+          "local_rel_path": "src/pages/Catalog.jsx",
+          "vs_filename": "src__pages__Catalog.js",
+          "sha256": "3224749147dd2840e569d0ad71808c00067f0d3afa06c3041ebb1a146315f092",
+          "size": 4409,
+          "mtime": 1755221960.0671005,
+          "file_id": "file-6VLaesGn7EgCmpiVqG2saF",
+          "vs_file_id": "file-6VLaesGn7EgCmpiVqG2saF",
+          "uploaded_at": "2025-08-15T11:00:07.304025+00:00"
+        },
+        "src__pages__DiagnosesPage.js": {
+          "local_rel_path": "src/pages/DiagnosesPage.jsx",
+          "vs_filename": "src__pages__DiagnosesPage.js",
+          "sha256": "07c0f4028e80f7b0688778b8e88e7d9b5b3833e597de7c831638e83093d71050",
+          "size": 304,
+          "mtime": 1755221960.0832264,
+          "file_id": "file-LpA6sPpd8U1a9rbGG8zo6T",
+          "vs_file_id": "file-LpA6sPpd8U1a9rbGG8zo6T",
+          "uploaded_at": "2025-08-15T11:00:08.734258+00:00"
+        },
+        "src__pages__ExamsPage.js": {
+          "local_rel_path": "src/pages/ExamsPage.jsx",
+          "vs_filename": "src__pages__ExamsPage.js",
+          "sha256": "1c037bda5e63ee9ffbab2095aca97b76c6ad91323af4f5713308973b016c0464",
+          "size": 8109,
+          "mtime": 1755221960.0891287,
+          "file_id": "file-8Bcdxd7SoggGVr4woVE1V4",
+          "vs_file_id": "file-8Bcdxd7SoggGVr4woVE1V4",
+          "uploaded_at": "2025-08-15T11:00:10.134228+00:00"
+        },
+        "src__pages__LabsPage.js": {
+          "local_rel_path": "src/pages/LabsPage.jsx",
+          "vs_filename": "src__pages__LabsPage.js",
+          "sha256": "877e6b21a38c863869c515bcb386d20ebee1b7b5e8c010c11f10106cbb72f628",
+          "size": 14401,
+          "mtime": 1755221960.0891287,
+          "file_id": "file-XtxZeg7cvq3fGyvLF6nKhX",
+          "vs_file_id": "file-XtxZeg7cvq3fGyvLF6nKhX",
+          "uploaded_at": "2025-08-15T11:00:11.444163+00:00"
+        },
+        "src__pages__LegacyMain.js": {
+          "local_rel_path": "src/pages/LegacyMain.jsx",
+          "vs_filename": "src__pages__LegacyMain.js",
+          "sha256": "8e1053a401bbd659fc25e8e9a8563a79701591592d7ff53c0b4916ad1bcb46b2",
+          "size": 10108,
+          "mtime": 1755266467.1438553,
+          "file_id": "file-S9LgJFZJTtEvZp6BkGpzbF",
+          "vs_file_id": "file-S9LgJFZJTtEvZp6BkGpzbF",
+          "uploaded_at": "2025-08-16T06:23:55.888782+00:00"
+        },
+        "src__pages__MainPage.js": {
+          "local_rel_path": "src/pages/MainPage.jsx",
+          "vs_filename": "src__pages__MainPage.js",
+          "sha256": "c86e35a97d35ea8ac7f0588f9c73e4070bab12914bb6131a1601daf34e536a3f",
+          "size": 7615,
+          "mtime": 1755322106.8880575,
+          "file_id": "file-DuMUKsm4MRXAc6wKz9Q18T",
+          "vs_file_id": "file-DuMUKsm4MRXAc6wKz9Q18T",
+          "uploaded_at": "2025-08-16T06:23:57.886985+00:00"
+        },
+        "src__pages__SymptomsPage.js": {
+          "local_rel_path": "src/pages/SymptomsPage.jsx",
+          "vs_filename": "src__pages__SymptomsPage.js",
+          "sha256": "52cf81f23f274dcf61cccba678dc8a991e715b3d4bb64ddaf485eec07fa2e42a",
+          "size": 5931,
+          "mtime": 1755221960.1155589,
+          "file_id": "file-VsjGt3PN78vXG5SmBCjfbf",
+          "vs_file_id": "file-VsjGt3PN78vXG5SmBCjfbf",
+          "uploaded_at": "2025-08-15T11:00:15.993687+00:00"
+        },
+        "src__pages__TableView.js": {
+          "local_rel_path": "src/pages/TableView.jsx",
+          "vs_filename": "src__pages__TableView.js",
+          "sha256": "08cc43a60ab70dd0d1db7140e79a1ff42534b8095bc8e053b2253115e7dab68f",
+          "size": 27106,
+          "mtime": 1755221960.1155589,
+          "file_id": "file-3L7broRmsPuM4ZBo7dMctN",
+          "vs_file_id": "file-3L7broRmsPuM4ZBo7dMctN",
+          "uploaded_at": "2025-08-15T11:00:17.533904+00:00"
+        },
+        "src__pages__TreatmentPage.js": {
+          "local_rel_path": "src/pages/TreatmentPage.jsx",
+          "vs_filename": "src__pages__TreatmentPage.js",
+          "sha256": "d6e14448c8f9367cb0016ae2eee00b03cf6361d27b7fb64a1222f09d819a7351",
+          "size": 14551,
+          "mtime": 1755221960.1245034,
+          "file_id": "file-DKZAFzmtKGU9WfxYzQ7YUh",
+          "vs_file_id": "file-DKZAFzmtKGU9WfxYzQ7YUh",
+          "uploaded_at": "2025-08-15T11:00:18.974458+00:00"
+        },
+        "src__components__charts__DistributionChart.js": {
+          "local_rel_path": "src/components/charts/DistributionChart.jsx",
+          "vs_filename": "src__components__charts__DistributionChart.js",
+          "sha256": "36433da2488f3883016ab5b4148be93a97ce5a4ea4b85c43650dcc89b32ebfa2",
+          "size": 1389,
+          "mtime": 1755221960.0525188,
+          "file_id": "file-NbP3fw4r4cuJVL8yKNHZXE",
+          "vs_file_id": "file-NbP3fw4r4cuJVL8yKNHZXE",
+          "uploaded_at": "2025-08-15T11:00:20.225045+00:00"
+        },
+        "src__components__charts__RiskCurve.js": {
+          "local_rel_path": "src/components/charts/RiskCurve.jsx",
+          "vs_filename": "src__components__charts__RiskCurve.js",
+          "sha256": "ec18001b615fd308602d41b62909596b4827e86b4091b20aab1b052a2bc3702a",
+          "size": 1008,
+          "mtime": 1755221960.0525188,
+          "file_id": "file-L6gVRrJmPBsoVNv3jFVrTV",
+          "vs_file_id": "file-L6gVRrJmPBsoVNv3jFVrTV",
+          "uploaded_at": "2025-08-15T11:00:21.533691+00:00"
+        },
+        "src/App.jsx": {
+          "sha256": "7c3952dcb01b1fee33fa01c7a07e3642e9af95e6d4877a1044395f1b0585cf66",
+          "size": 1178,
+          "mtime": 1755221959,
+          "remote_file_id": "file-UqtmWxRGB5JQUa55La4Bfw",
+          "remote_filename": "src__App.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:38:53.440971+00:00"
+        },
+        "src/index.css": {
+          "sha256": "76f83b43a2b8b010b645fc6cb666ce2bca9d64ceb079da6bce34545a4fb436e7",
+          "size": 1033,
+          "mtime": 1755242076,
+          "remote_file_id": "file-FMurwWZqWE6A3c7gcPBiwV",
+          "remote_filename": "src__index.css",
+          "normalized": false,
+          "uploaded_at": "2025-08-17T14:52:41.878684+00:00"
+        },
+        "src/main.jsx": {
+          "sha256": "acb24feb3540b5ee687f5a65bdbb81fe3644aa19da89256bc24b18d8ee010410",
+          "size": 235,
+          "mtime": 1755221959,
+          "remote_file_id": "file-Uq392f6yBibsZYAdZdJMK1",
+          "remote_filename": "src__main.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:38:54.906830+00:00"
+        },
+        "src/components/Button.jsx": {
+          "sha256": "aba7276e4a90362c96d76f9bc6be4da90c95170a7545cc2e43b3f33864f79c90",
+          "size": 755,
+          "mtime": 1755221959,
+          "remote_file_id": "file-ErvnLeBFRZp4NLj7uwrTwe",
+          "remote_filename": "src__components__Button.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:38:56.267074+00:00"
+        },
+        "src/components/Card.jsx": {
+          "sha256": "9c5c3edda0d1ade32a1656d41ecaaa24f7929a3efe25be38d7ad7b77ee24c03f",
+          "size": 298,
+          "mtime": 1755221960,
+          "remote_file_id": "file-PKcBoSv6oNe5p5fQaxzB8J",
+          "remote_filename": "src__components__Card.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:38:58.446524+00:00"
+        },
+        "src/components/Chip.jsx": {
+          "sha256": "a65234690cc305174ff33f81b178cf30b96653a0c9e15efd6348cc661d5f4b36",
+          "size": 701,
+          "mtime": 1755221960,
+          "remote_file_id": "file-Cx4nu1eqDpPiXtkZHVbDTo",
+          "remote_filename": "src__components__Chip.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:38:59.266352+00:00"
+        },
+        "src/components/GeneticsSection.jsx": {
+          "sha256": "42ac9d232863cdf3c60f8f162cb7d6a3dd6ea137f57b4ea49549961e659f5cb1",
+          "size": 381,
+          "mtime": 1755221960,
+          "remote_file_id": "file-16StU2N1d2pUm9Zyzd3XLx",
+          "remote_filename": "src__components__GeneticsSection.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:38:59.973820+00:00"
+        },
+        "src/components/GrapesEditor.jsx": {
+          "sha256": "d37c1f46dc2c76849e9de78306d38cd2c0a1133d77c388698cdffeb8db2f1c5a",
+          "size": 767,
+          "mtime": 1755221960,
+          "remote_file_id": "file-ND21BGdfFmDdFuiLHpwdzs",
+          "remote_filename": "src__components__GrapesEditor.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:39:00.686202+00:00"
+        },
+        "src/components/MainMenu.jsx": {
+          "sha256": "d47e38149438136267aad5aa29e1b50765a794942eab22589395c4558fc68fc8",
+          "size": 434,
+          "mtime": 1755221960,
+          "remote_file_id": "file-J2TdELN3JkeTEHZkDAkRKw",
+          "remote_filename": "src__components__MainMenu.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:39:01.405977+00:00"
+        },
+        "src/components/RiskBar.jsx": {
+          "sha256": "92f6e28f6b85eb82944b1d710e9a5615a59bf10e7ef86c743dd560cc746039bf",
+          "size": 643,
+          "mtime": 1755221960,
+          "remote_file_id": "file-X92neqRbGWzUGJ7vrWbzu6",
+          "remote_filename": "src__components__RiskBar.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:39:02.100505+00:00"
+        },
+        "src/components/SectionTitle.jsx": {
+          "sha256": "dc47be9f79e8e17bc5b6dd20008afe8f0aece15b382e6a7148dab463d5fabb8a",
+          "size": 477,
+          "mtime": 1755221960,
+          "remote_file_id": "file-NQtfmxPsu5j2VGfR3iSXvn",
+          "remote_filename": "src__components__SectionTitle.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:39:02.806304+00:00"
+        },
+        "src/components/TopNav.jsx": {
+          "sha256": "65e85de71966fef5099473e1c7ee5597e23f42b0cbaa118b74b7ca54328faf07",
+          "size": 2696,
+          "mtime": 1755242076,
+          "remote_file_id": "file-AYVKWAzMMe1fi7UydvZh9j",
+          "remote_filename": "src__components__TopNav.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:39:03.466079+00:00"
+        },
+        "src/lib/constants.js": {
+          "sha256": "0169cfbb76e136ea68b0659f4113d611faf83a4972ac872576f1c564c60f7af0",
+          "size": 1831,
+          "mtime": 1755221960,
+          "remote_file_id": "file-FRCbG1Nai7Z7dbzviAVxjn",
+          "remote_filename": "src__lib__constants.js",
+          "normalized": false,
+          "uploaded_at": "2025-08-15T15:39:04.645940+00:00"
+        },
+        "src/lib/utils.js": {
+          "sha256": "117e5e4a40b2d26fe4c29ca8cf3a5a1e4ceaa76f8bf1837877628ed5c3dd31e9",
+          "size": 1868,
+          "mtime": 1755221960,
+          "remote_file_id": "file-9JMiU5tLxcEsmsog1L1A3g",
+          "remote_filename": "src__lib__utils.js",
+          "normalized": false,
+          "uploaded_at": "2025-08-15T15:39:05.516150+00:00"
+        },
+        "src/pages/Catalog.jsx": {
+          "sha256": "3224749147dd2840e569d0ad71808c00067f0d3afa06c3041ebb1a146315f092",
+          "size": 4409,
+          "mtime": 1755221960,
+          "remote_file_id": "file-HsmpJ7NKAY7WYBGG3ep2p2",
+          "remote_filename": "src__pages__Catalog.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:43.067938+00:00"
+        },
+        "src/pages/DiagnosesPage.jsx": {
+          "sha256": "07c0f4028e80f7b0688778b8e88e7d9b5b3833e597de7c831638e83093d71050",
+          "size": 304,
+          "mtime": 1755221960,
+          "remote_file_id": "file-WZrynz8F5Jgaxx71nF9C8t",
+          "remote_filename": "src__pages__DiagnosesPage.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:44.454873+00:00"
+        },
+        "src/pages/ExamsPage.jsx": {
+          "sha256": "1c037bda5e63ee9ffbab2095aca97b76c6ad91323af4f5713308973b016c0464",
+          "size": 8109,
+          "mtime": 1755221960,
+          "remote_file_id": "file-A3gyZugXn72kNNBbryetFm",
+          "remote_filename": "src__pages__ExamsPage.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:45.300458+00:00"
+        },
+        "src/pages/LabsPage.jsx": {
+          "sha256": "877e6b21a38c863869c515bcb386d20ebee1b7b5e8c010c11f10106cbb72f628",
+          "size": 14401,
+          "mtime": 1755221960,
+          "remote_file_id": "file-QM5Fan4FSQUWNy7wddZc4R",
+          "remote_filename": "src__pages__LabsPage.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:47.033302+00:00"
+        },
+        "src/pages/LegacyMain.jsx": {
+          "sha256": "a69bef1bea11d415f4febdc66a4cf62f5c35bc94416dba429145dd73e124af50",
+          "size": 10107,
+          "mtime": 1755325050,
+          "remote_file_id": "file-RtcWhchFVs2aWJqE5aUZqj",
+          "remote_filename": "src__pages__LegacyMain.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:47.878814+00:00"
+        },
+        "src/pages/MainPage.jsx": {
+          "sha256": "e7f90d3d89aa7ef08a7d0fb46a9867f01d0cac05673cfdcc238cf2d0153c026a",
+          "size": 3821,
+          "mtime": 1755436375,
+          "remote_file_id": "file-X3s7hVN5Xgt1D4DjdRkpEg",
+          "remote_filename": "src__pages__MainPage.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:48.686682+00:00"
+        },
+        "src/pages/SymptomsPage.jsx": {
+          "sha256": "52cf81f23f274dcf61cccba678dc8a991e715b3d4bb64ddaf485eec07fa2e42a",
+          "size": 5931,
+          "mtime": 1755221960,
+          "remote_file_id": "file-Rp45RLbisLTmF7MgjmhfAc",
+          "remote_filename": "src__pages__SymptomsPage.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:49.470151+00:00"
+        },
+        "src/pages/TableView.jsx": {
+          "sha256": "08cc43a60ab70dd0d1db7140e79a1ff42534b8095bc8e053b2253115e7dab68f",
+          "size": 27106,
+          "mtime": 1755221960,
+          "remote_file_id": "file-AX6qkaLGynXsfrDKdNurLr",
+          "remote_filename": "src__pages__TableView.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:50.254105+00:00"
+        },
+        "src/pages/TreatmentPage.jsx": {
+          "sha256": "d6e14448c8f9367cb0016ae2eee00b03cf6361d27b7fb64a1222f09d819a7351",
+          "size": 14551,
+          "mtime": 1755221960,
+          "remote_file_id": "file-TodMJmbNW3Bq3wXWh49hAf",
+          "remote_filename": "src__pages__TreatmentPage.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T14:52:51.034660+00:00"
+        },
+        "src/components/charts/DistributionChart.jsx": {
+          "sha256": "36433da2488f3883016ab5b4148be93a97ce5a4ea4b85c43650dcc89b32ebfa2",
+          "size": 1389,
+          "mtime": 1755221960,
+          "remote_file_id": "file-L5HFA3fWd63fF924XGLaXj",
+          "remote_filename": "src__components__charts__DistributionChart.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:39:13.288822+00:00"
+        },
+        "src/components/charts/RiskCurve.jsx": {
+          "sha256": "ec18001b615fd308602d41b62909596b4827e86b4091b20aab1b052a2bc3702a",
+          "size": 1008,
+          "mtime": 1755221960,
+          "remote_file_id": "file-UtfHX2F4wHtAHLZUADF8k9",
+          "remote_filename": "src__components__charts__RiskCurve.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-15T15:39:13.956448+00:00"
+        },
+        "src/components/WhatYouGetBanner.jsx": {
+          "sha256": "ae269d17bcd8f560b916a01959a0d07d8b732447342e7b1e6ecca28a97e9c166",
+          "size": 1150,
+          "mtime": 1755432967,
+          "remote_file_id": "file-VSFkLL1fVsNadjz6CViZBb",
+          "remote_filename": "src__components__WhatYouGetBanner.js",
+          "normalized": true,
+          "uploaded_at": "2025-08-17T13:02:40.918424+00:00"
+        }
+      }
+    }
+  },
+  "updated_at": "2025-08-17T14:52:51.037766+00:00"
+}

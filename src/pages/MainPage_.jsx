@@ -20,7 +20,7 @@ export default function MainPage({ onGo }) {
     <>
       <div className="mx-auto max-w-7xl">
         {/* HERO */}
-        <section className="relative overflow-hidden" data-testid="mainpage-hero">
+        <section className="relative overflow-hidden">
           <div className="mx-auto max-w-7xl px-4 pt-10 pb-12 sm:pt-16 sm:pb-16">
             <div className="grid items-center gap-8 md:grid-cols-2">
               {/* ЛЕВАЯ КОЛОНКА — заголовок и CTA */}
@@ -32,8 +32,8 @@ export default function MainPage({ onGo }) {
                   Своевременная диагностика распространённых рисков и персональные шаги по их снижению.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <Button onClick={() => go("catalog")} icon={ArrowRight} data-testid="mainpage-button-checkup">Пройти чекап</Button>
-                  <Button variant="outline" onClick={() => go("table")} icon={Activity} data-testid="mainpage-button-table">Показатели</Button>
+                  <Button onClick={() => go("catalog")} icon={ArrowRight}>Пройти чекап</Button>
+                  <Button variant="outline" onClick={() => go("table")} icon={Activity}>Показатели</Button>
                 </div>
               </div>
 
@@ -63,9 +63,9 @@ export default function MainPage({ onGo }) {
       <div className="w-full bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-8">
           <Card className="w-full p-6">
-            <div className="flex flex-col md:flex-row items-stretch justify-between gap-6" data-testid="mainpage-stats">
+            <div className="flex flex-col md:flex-row items-stretch justify-between gap-6">
               {stats.map((s) => (
-                <div key={s.label} className="flex-1 text-center" data-testid="mainpage-stats-item">
+                <div key={s.label} className="flex-1 text-center">
                   <div className="text-2xl md:text-3xl font-extrabold text-red-600">{s.value}</div>
                   <div className="mt-1 text-sm text-slate-700">{s.label}</div>
                 </div>

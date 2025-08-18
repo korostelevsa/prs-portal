@@ -1,0 +1,238 @@
+{
+  "vector_stores": {
+    "vs_689ec1422a388191aaba6026dd75ad8a": {
+      "files": {
+        "src__components__charts__RiskCurve.js": {
+          "file_id": "file-L6gVRrJmPBsoVNv3jFVrTV",
+          "vs_file_id": "file-L6gVRrJmPBsoVNv3jFVrTV"
+        },
+        "src__components__charts__DistributionChart.js": {
+          "file_id": "file-NbP3fw4r4cuJVL8yKNHZXE",
+          "vs_file_id": "file-NbP3fw4r4cuJVL8yKNHZXE"
+        },
+        "src__pages__TreatmentPage.js": {
+          "file_id": "file-DKZAFzmtKGU9WfxYzQ7YUh",
+          "vs_file_id": "file-DKZAFzmtKGU9WfxYzQ7YUh"
+        },
+        "src__pages__TableView.js": {
+          "file_id": "file-3L7broRmsPuM4ZBo7dMctN",
+          "vs_file_id": "file-3L7broRmsPuM4ZBo7dMctN"
+        },
+        "src__pages__SymptomsPage.js": {
+          "file_id": "file-VsjGt3PN78vXG5SmBCjfbf",
+          "vs_file_id": "file-VsjGt3PN78vXG5SmBCjfbf"
+        },
+        "src__pages__MainPage.js": {
+          "file_id": "file-Ux4j4RVypXCJwh6P8fKDoH",
+          "vs_file_id": "file-Ux4j4RVypXCJwh6P8fKDoH"
+        },
+        "src__pages__LegacyMain.js": {
+          "file_id": "file-4TP4FAfM6JCdk4rYo4Cps6",
+          "vs_file_id": "file-4TP4FAfM6JCdk4rYo4Cps6"
+        },
+        "src__pages__LabsPage.js": {
+          "file_id": "file-XtxZeg7cvq3fGyvLF6nKhX",
+          "vs_file_id": "file-XtxZeg7cvq3fGyvLF6nKhX"
+        },
+        "src__pages__ExamsPage.js": {
+          "file_id": "file-8Bcdxd7SoggGVr4woVE1V4",
+          "vs_file_id": "file-8Bcdxd7SoggGVr4woVE1V4"
+        },
+        "src__pages__DiagnosesPage.js": {
+          "file_id": "file-LpA6sPpd8U1a9rbGG8zo6T",
+          "vs_file_id": "file-LpA6sPpd8U1a9rbGG8zo6T"
+        },
+        "src__pages__Catalog.js": {
+          "file_id": "file-6VLaesGn7EgCmpiVqG2saF",
+          "vs_file_id": "file-6VLaesGn7EgCmpiVqG2saF"
+        },
+        "src__lib__utils.js": {
+          "file_id": "file-W5NzEBRtQVqpHCCDZ7c7uk",
+          "vs_file_id": "file-W5NzEBRtQVqpHCCDZ7c7uk"
+        },
+        "src__lib__constants.js": {
+          "file_id": "file-Qj4ncGmTka3L86SwjxQHSA",
+          "vs_file_id": "file-Qj4ncGmTka3L86SwjxQHSA"
+        },
+        "src__components__TopNav.js": {
+          "file_id": "file-M6y7gxbzZJE9NzRSAQ6ujZ",
+          "vs_file_id": "file-M6y7gxbzZJE9NzRSAQ6ujZ"
+        },
+        "src__components__SectionTitle.js": {
+          "file_id": "file-RziKJZpWuJve78fjBbp6Gc",
+          "vs_file_id": "file-RziKJZpWuJve78fjBbp6Gc"
+        },
+        "src__components__RiskBar.js": {
+          "file_id": "file-QcoUmV13FkyBooSFUK5kZQ",
+          "vs_file_id": "file-QcoUmV13FkyBooSFUK5kZQ"
+        },
+        "src__components__MainMenu.js": {
+          "file_id": "file-7gQLB53AcaWzYbncP28kJv",
+          "vs_file_id": "file-7gQLB53AcaWzYbncP28kJv"
+        },
+        "src__components__GrapesEditor.js": {
+          "file_id": "file-E9kQkBt7Y9XXQnsYTnQPDP",
+          "vs_file_id": "file-E9kQkBt7Y9XXQnsYTnQPDP"
+        },
+        "src__components__GeneticsSection.js": {
+          "file_id": "file-SPfdSV5zpfhEnxoiGu8W67",
+          "vs_file_id": "file-SPfdSV5zpfhEnxoiGu8W67"
+        },
+        "src__components__Chip.js": {
+          "file_id": "file-K5GXykahbUS8MeQECr3mcX",
+          "vs_file_id": "file-K5GXykahbUS8MeQECr3mcX"
+        },
+        "src__components__Card.js": {
+          "file_id": "file-66t5MWp3N7GqciHvyS5kNg",
+          "vs_file_id": "file-66t5MWp3N7GqciHvyS5kNg"
+        },
+        "src__components__Button.js": {
+          "file_id": "file-ELVT4WHLEpXEv54e1Abzt5",
+          "vs_file_id": "file-ELVT4WHLEpXEv54e1Abzt5"
+        },
+        "src__main.js": {
+          "file_id": "file-38oVBWSUeG1VEpxH17pYZb",
+          "vs_file_id": "file-38oVBWSUeG1VEpxH17pYZb"
+        },
+        "src__index.css": {
+          "file_id": "file-2JWVyUrqXta9whKXRa1mcz",
+          "vs_file_id": "file-2JWVyUrqXta9whKXRa1mcz"
+        },
+        "src__App.js": {
+          "file_id": "file-UxX9qz4B1swiaiMJLeTPo1",
+          "vs_file_id": "file-UxX9qz4B1swiaiMJLeTPo1"
+        },
+        "vite.config.js": {
+          "file_id": "file-WsZ9BWC4E75ApFqXysBgHx",
+          "vs_file_id": "file-WsZ9BWC4E75ApFqXysBgHx"
+        },
+        "tailwind.config.js": {
+          "file_id": "file-W27SeU4LAyRm5ZMohGYqbP",
+          "vs_file_id": "file-W27SeU4LAyRm5ZMohGYqbP"
+        },
+        "postcss.config.js": {
+          "file_id": "file-SrWPtrbkR1xZQfQ77hFyY6",
+          "vs_file_id": "file-SrWPtrbkR1xZQfQ77hFyY6"
+        },
+        "package.json": {
+          "file_id": "file-8mwvaXmpLwCNhxiyNWdESA",
+          "vs_file_id": "file-8mwvaXmpLwCNhxiyNWdESA"
+        },
+        "package-lock.json": {
+          "file_id": "file-HDPvWqAupGiAjc7s1RFZKc",
+          "vs_file_id": "file-HDPvWqAupGiAjc7s1RFZKc"
+        },
+        "index.html": {
+          "file_id": "file-J3U1RQ3FSqQSimDqTaLGJX",
+          "vs_file_id": "file-J3U1RQ3FSqQSimDqTaLGJX"
+        },
+        ".openai_vs_manifest.json": {
+          "file_id": "file-RYssXZQJ9ZUCBZE8Qhqou4",
+          "vs_file_id": "file-RYssXZQJ9ZUCBZE8Qhqou4"
+        },
+        "MainPage.js": {
+          "file_id": "file-JySrKYqifaUSNACDrnEZVQ",
+          "vs_file_id": "file-JySrKYqifaUSNACDrnEZVQ"
+        },
+        "TreatmentPage.js": {
+          "file_id": "file-X7oh8svy2MdCJszDyLvZ31",
+          "vs_file_id": "file-X7oh8svy2MdCJszDyLvZ31"
+        },
+        "TableView.js": {
+          "file_id": "file-F53ffamdfHv2L3averR8ha",
+          "vs_file_id": "file-F53ffamdfHv2L3averR8ha"
+        },
+        "SymptomsPage.js": {
+          "file_id": "file-Sn1KSuNRLNwt2PXBRyz9N6",
+          "vs_file_id": "file-Sn1KSuNRLNwt2PXBRyz9N6"
+        },
+        "LegacyMain.js": {
+          "file_id": "file-BEaPYudUKUUwk1PwhwzQsi",
+          "vs_file_id": "file-BEaPYudUKUUwk1PwhwzQsi"
+        },
+        "LabsPage.js": {
+          "file_id": "file-6BvfdPJxCKQ2JqcpTFhAVn",
+          "vs_file_id": "file-6BvfdPJxCKQ2JqcpTFhAVn"
+        },
+        "ExamsPage.js": {
+          "file_id": "file-6V6bAqxiYjV4DZtVrQ9A38",
+          "vs_file_id": "file-6V6bAqxiYjV4DZtVrQ9A38"
+        },
+        "DiagnosesPage.js": {
+          "file_id": "file-JbwsRzfajgG8hEqgXgxKXh",
+          "vs_file_id": "file-JbwsRzfajgG8hEqgXgxKXh"
+        },
+        "Catalog.js": {
+          "file_id": "file-QsKnPYsCNdmPPYGr13ZmsG",
+          "vs_file_id": "file-QsKnPYsCNdmPPYGr13ZmsG"
+        },
+        "main.js": {
+          "file_id": "file-7xRrxykmeB6ZUzJUg6LX9z",
+          "vs_file_id": "file-7xRrxykmeB6ZUzJUg6LX9z"
+        },
+        "utils.js": {
+          "file_id": "file-VT9xH9Zy2jjGHVhYKEhhT4",
+          "vs_file_id": "file-VT9xH9Zy2jjGHVhYKEhhT4"
+        },
+        "constants.js": {
+          "file_id": "file-Mtr3H4YFkTpRk99J7b6fzo",
+          "vs_file_id": "file-Mtr3H4YFkTpRk99J7b6fzo"
+        },
+        "index.css": {
+          "file_id": "file-737K4uEzoTU3A8ffmaac8T",
+          "vs_file_id": "file-737K4uEzoTU3A8ffmaac8T"
+        },
+        "RiskCurve.js": {
+          "file_id": "file-PLFEr11NLHZxcHzSoZx712",
+          "vs_file_id": "file-PLFEr11NLHZxcHzSoZx712"
+        },
+        "DistributionChart.js": {
+          "file_id": "file-PrjNCVfQkptMuxohReVPhs",
+          "vs_file_id": "file-PrjNCVfQkptMuxohReVPhs"
+        },
+        "TopNav.js": {
+          "file_id": "file-LMFBpE24MDvvdDSe5PaD9C",
+          "vs_file_id": "file-LMFBpE24MDvvdDSe5PaD9C"
+        },
+        "SectionTitle.js": {
+          "file_id": "file-N8aZtgFfxfc9UdxTE5AyTj",
+          "vs_file_id": "file-N8aZtgFfxfc9UdxTE5AyTj"
+        },
+        "RiskBar.js": {
+          "file_id": "file-CmHvfiBi5ToTH2zrTD9a92",
+          "vs_file_id": "file-CmHvfiBi5ToTH2zrTD9a92"
+        },
+        "MainMenu.js": {
+          "file_id": "file-QtRRV5CJVkCgE5oeLJ1MHH",
+          "vs_file_id": "file-QtRRV5CJVkCgE5oeLJ1MHH"
+        },
+        "GrapesEditor.js": {
+          "file_id": "file-R4YoNRBVNvgLomTFX6DDc3",
+          "vs_file_id": "file-R4YoNRBVNvgLomTFX6DDc3"
+        },
+        "GeneticsSection.js": {
+          "file_id": "file-544qGKPjoVmTmvfqNevoov",
+          "vs_file_id": "file-544qGKPjoVmTmvfqNevoov"
+        },
+        "Chip.js": {
+          "file_id": "file-WS6UU8xohVvmtch4ohY6FE",
+          "vs_file_id": "file-WS6UU8xohVvmtch4ohY6FE"
+        },
+        "Card.js": {
+          "file_id": "file-3TDYuS89PH7Fh9cXW33MmC",
+          "vs_file_id": "file-3TDYuS89PH7Fh9cXW33MmC"
+        },
+        "Button.js": {
+          "file_id": "file-KVnPQ5cpYm1HVoQirkSUyx",
+          "vs_file_id": "file-KVnPQ5cpYm1HVoQirkSUyx"
+        },
+        "App.js": {
+          "file_id": "file-4uUwCghnomzdrSWu2Dr963",
+          "vs_file_id": "file-4uUwCghnomzdrSWu2Dr963"
+        }
+      },
+      "fetched_at": "2025-08-15T11:32:31.563693+00:00",
+      "count": 57
+    }
+  }
+}

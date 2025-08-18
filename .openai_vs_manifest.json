@@ -1,0 +1,141 @@
+{
+  "vector_store_id": "vs_689cbb2d5cb48191a7cef5a5c96da0a8",
+  "files": {
+    ".gitattributes.txt": {
+      "sha256": "9ec50838d78a2dfdb50906e8352cfc58562d64cde7b91bdff3a9ed021df7cb2d",
+      "file_id": "file-NDRZRptQUZENqnoo2oWZdw"
+    },
+    ".gitignore.txt": {
+      "sha256": "0c7abcfc1820912309a3b1519b035c721581e00e1df6d4f2874bceeadfa11ef1",
+      "file_id": "file-QDCZFcVU1N8QwvUrAMEx9F"
+    },
+    "index.html": {
+      "sha256": "2cb20afa6599cc326a4c8e90f1dcb8a2faedbc90f794d2049f742acb6310e6a2",
+      "file_id": "file-MKsqojftReyJDTag5QCgen"
+    },
+    "package-lock.json": {
+      "sha256": "e1d76ee997799f579d05f527b2b8d017a55406171bc71bf23bbf668436b3028f",
+      "file_id": "file-PAdSgR1xp1u3PpxWSSabJc"
+    },
+    "package.json": {
+      "sha256": "be44fd5ac001b5e90523ccf8b7e23dd6a8d7b0b665dc8712f06514f51f4a4298",
+      "file_id": "file-69TwN1FgyTyT4LimfmMcPN"
+    },
+    "postcss.config.js": {
+      "sha256": "190c877db466995bf1482f4a16abd06e04a89ede3119341e2a86ff96e1737b27",
+      "file_id": "file-UWu42kvfxrvzDBNCn646zL"
+    },
+    "site.analysis.txt": {
+      "sha256": "770d9ab0d70df9cc7c940ce28e3d60ea2c6eff7723a513ba56f25c06b293dde5",
+      "file_id": "file-RctZm21zBke539ADVdvxd6"
+    },
+    "tailwind.config.js": {
+      "sha256": "2248bf828c19499e4a34a9d6696bc862cd53989239b7b4a61a76eef20bfacb79",
+      "file_id": "file-GZEc7WVSnF4sjANkcVvyNR"
+    },
+    "vite.config.js": {
+      "sha256": "51ee874358bd542e0640c8481181983aaf26eb1afdf49452853349a604931d09",
+      "file_id": "file-5Qacof9VHU7ZZhUM2VwdHp"
+    },
+    "App.js": {
+      "sha256": "7c3952dcb01b1fee33fa01c7a07e3642e9af95e6d4877a1044395f1b0585cf66",
+      "file_id": "file-Y2R2pfF9R8MBodfNf46fot"
+    },
+    "index.css": {
+      "sha256": "1c7accd2d92158b4bf3923ab16d5f31b26934a3307b81aa9cf2b6bff21e5a6a9",
+      "file_id": "file-Jr7euRsqrZf3nW2duDz7Sk"
+    },
+    "main.js": {
+      "sha256": "acb24feb3540b5ee687f5a65bdbb81fe3644aa19da89256bc24b18d8ee010410",
+      "file_id": "file-WJUcg9CAXzDmzPMbBp66SF"
+    },
+    "components/Button.js": {
+      "sha256": "aba7276e4a90362c96d76f9bc6be4da90c95170a7545cc2e43b3f33864f79c90",
+      "file_id": "file-QtKA67R3i8S1GyNz2JFiAT"
+    },
+    "components/Card.js": {
+      "sha256": "9c5c3edda0d1ade32a1656d41ecaaa24f7929a3efe25be38d7ad7b77ee24c03f",
+      "file_id": "file-6Eh1BKaunM3mQvzaRPgLKR"
+    },
+    "components/Chip.js": {
+      "sha256": "a65234690cc305174ff33f81b178cf30b96653a0c9e15efd6348cc661d5f4b36",
+      "file_id": "file-DhUqYA8vYx6QUijRmRYC7i"
+    },
+    "components/RiskBar.js": {
+      "sha256": "92f6e28f6b85eb82944b1d710e9a5615a59bf10e7ef86c743dd560cc746039bf",
+      "file_id": "file-6DEC3MmQ2WB6CTKzQS1mDd"
+    },
+    "components/SectionTitle.js": {
+      "sha256": "dc47be9f79e8e17bc5b6dd20008afe8f0aece15b382e6a7148dab463d5fabb8a",
+      "file_id": "file-5AUauWib3SH4NnxooR6FhV"
+    },
+    "components/TopNav.js": {
+      "sha256": "a3edb22ff845e85dd36945117c3b6de587ac489280859773bb4072c76876f843",
+      "file_id": "file-JTfg6dhT8qHDjVJdv4Xpdy"
+    },
+    "lib/constants.js": {
+      "sha256": "0169cfbb76e136ea68b0659f4113d611faf83a4972ac872576f1c564c60f7af0",
+      "file_id": "file-AmHtRQdmZxuu5g4kbrA9bm"
+    },
+    "lib/utils.js": {
+      "sha256": "117e5e4a40b2d26fe4c29ca8cf3a5a1e4ceaa76f8bf1837877628ed5c3dd31e9",
+      "file_id": "file-LHmdEiNfZJUyKCqZ92ZmKN"
+    },
+    "pages/Catalog.js": {
+      "sha256": "3224749147dd2840e569d0ad71808c00067f0d3afa06c3041ebb1a146315f092",
+      "file_id": "file-98YB2BuAdaEhLin7UbyUSA"
+    },
+    "pages/ExamsPage.js": {
+      "sha256": "1c037bda5e63ee9ffbab2095aca97b76c6ad91323af4f5713308973b016c0464",
+      "file_id": "file-Y8pXc21ctsq52uhhET4XLX"
+    },
+    "pages/LabsPage.js": {
+      "sha256": "877e6b21a38c863869c515bcb386d20ebee1b7b5e8c010c11f10106cbb72f628",
+      "file_id": "file-DzWoHwR4KheC3cC4pgueVK"
+    },
+    "pages/LegacyMain.js": {
+      "sha256": "9d913857c2ef0ef91824966bf2db9290c2d5291beac84e9cec2c9b1cb0b2d5bc",
+      "file_id": "file-MjzhfV3tUrRe1b2nZwgeqJ"
+    },
+    "pages/MainPage.js": {
+      "sha256": "d5ba486d31bea5bc216cd1c5f1b1a22eeaea8abf281b115da440cebc7939f695",
+      "file_id": "file-GmEVxd7J48KTZbMe1irGHi"
+    },
+    "pages/SymptomsPage.js": {
+      "sha256": "52cf81f23f274dcf61cccba678dc8a991e715b3d4bb64ddaf485eec07fa2e42a",
+      "file_id": "file-Rc1BvzX6CkiKnorAL9Gwut"
+    },
+    "pages/TableView.js": {
+      "sha256": "08cc43a60ab70dd0d1db7140e79a1ff42534b8095bc8e053b2253115e7dab68f",
+      "file_id": "file-SRmhkerTUNY8diMeuHHLig"
+    },
+    "pages/TreatmentPage.js": {
+      "sha256": "d6e14448c8f9367cb0016ae2eee00b03cf6361d27b7fb64a1222f09d819a7351",
+      "file_id": "file-PbJqbhVye8NQFyGehBFFfK"
+    },
+    "components/charts/DistributionChart.js": {
+      "sha256": "36433da2488f3883016ab5b4148be93a97ce5a4ea4b85c43650dcc89b32ebfa2",
+      "file_id": "file-6bd7PG9eEVjeDTdiokLJw9"
+    },
+    "components/charts/RiskCurve.js": {
+      "sha256": "ec18001b615fd308602d41b62909596b4827e86b4091b20aab1b052a2bc3702a",
+      "file_id": "file-7JKGyQ5dRqpvYk8VJxr5Te"
+    },
+    "RENAMED_FILES__metadata.txt": {
+      "sha256": "a70b395c4e7e39ab2294c281cadacfc06cbf34bccc3f63b90a07dcd4ef03394a",
+      "file_id": "file-YHcqkQWrPZ9Jtru78LTeKv"
+    },
+    ".openai_vs_manifest.json": {
+      "sha256": "7805ef7857636e75da357e2b0e1ed6f6f7dd0edf4945ac36eef5c0807ab01eb4",
+      "file_id": "file-LaLQhzmorkhJCfBNrW5eTY"
+    },
+    "CHANGES_SUMMARY.txt": {
+      "sha256": "ab9090c266fc1db182cc7c42066783ddc522720133494e6f725d17995658aa43",
+      "file_id": "file-CvzaxsUgakxdu9GFP7qD3Q"
+    },
+    "components/GrapesEditor.js": {
+      "sha256": "d37c1f46dc2c76849e9de78306d38cd2c0a1133d77c388698cdffeb8db2f1c5a",
+      "file_id": "file-V5DWKzFbKnHUJJWozEUS25"
+    }
+  }
+}

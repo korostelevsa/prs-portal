@@ -25,3 +25,33 @@ export default function TopNav({ onNav, current }) {
     </div>
   );
 }
+
+/*
+ * SkipToContent
+ * A tiny component that renders an accessible skip link for keyboard users.
+ * Place near the top of the app (App.jsx) to allow jumping straight to #main-content.
+ */
+export function SkipToContent({ targetId = 'main-content', children = 'Skip to main content' }) {
+  return (
+    <a className="skip-to-content" href={`#${targetId}`} onClick={() => {
+      const target = document.getElementById(targetId);
+      if (target) setTimeout(() => target.focus({ preventScroll: true }));
+    }}>
+      {children}
+    </a>
+  );
+}
+
+/*
+ * markKeyboardUsers - toggles an HTML class when keyboard navigation is used.
+ * Helps CSS fallback in index.css to style :focus states.
+ */
+export function markKeyboardUsers() {
+  // Using passive setup; no effect on existing component logic.
+  window.addEventListener('keydown', function handleFirstTab(e) {
+    if (e.key === 'Tab') {
+      document.documentElement.classList.add('keyboard-user');
+      window.removeEventListener('keydown', handleFirstTab);
+    }
+  }, { once: true });
+}

@@ -1,12 +1,19 @@
-<!doctype html>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <script defer src="http://127.0.0.1:5000/inspector-bridge.js"></script>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PRS Portal</title>
+    <title>Vite + React</title>
   </head>
+<script src="http://127.0.0.1:5002/static/inspector-bridge.js"></script>
   <body>
     <div id="root"></div>
+    <!-- основной вход в проект -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Подключение инспектора (для работы Inspector Playground) -->
+    <script src="http://127.0.0.1:5050/inspector-bridge.js"></script>
   </body>
 </html>
